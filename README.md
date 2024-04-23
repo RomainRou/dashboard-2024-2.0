@@ -3,7 +3,7 @@
 un tuto pour l'installation est dispo en bas de page<br>
 <br>
 update:<br>
-22/04/2024-23/04/2024: la refonte du code de base en passant decluttering-card a permis d'allégé le code du dashboard. [terminer]<br>
+22/04/2024-23/04/2024: la refonte du code de base en passant decluttering-card a permis d'allégé le code du dashboard. adaptation automatique des icones chips en fonction de l'entité (si pas d'icone afficher il faut la definir dans les options de l'entité choisis). les chips alarmo sont intégré dans les cartes room et room_power[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
