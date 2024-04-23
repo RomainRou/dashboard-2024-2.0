@@ -9,7 +9,7 @@ update en cours:<br>
 <br>
 Le code des cartes est dans le fichier carte dashboard<br>
 Pour mettre vos entitées il suffit de les mettre dans les cartes du dashboard elles sont sur les lignes entity_1 à 5:<br>
-cartes template_card_room: et template_card_room_power: (possibilté de mettre 5 entitées différentes)<br>
+cartes template_card_room: (carte avec infos températures et humidité )et template_card_room_power:(idem que la template_card_room mais avec rajout de consommation: sensor_power)(possibilté de mettre 5 entitées différentes)<br>
 carte template_card_room_systeme: (possibilité de mettre 13 entitées différentes)<br>
 carte template_card_room_terra: (possibilité de mettre 6 entitées diférentes)<br>
 carte template_card_meteo: (adaptation automatique en changeant les entitées et sensor avec ceux de votre ville)<br>
