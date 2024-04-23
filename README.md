@@ -14,6 +14,7 @@ carte template_card_room_systeme: (possibilité de mettre 13 entitées différen
 carte template_card_room_terra: (possibilité de mettre 6 entitées diférentes)<br>
 carte template_card_meteo: (adaptation automatique en changeant les entitées et sensor avec ceux de votre ville)<br>
 Les backgrounds des cartes peuvent etre changer directement dans les cartes<br>
+Ne pas oublier de changer les entités dans les popups <br>
 pour le sensor "il fait nuit" le lien pour la création https://www.sigalou-domotique.fr/je-voudrais-savoir-si-nous-sommes-le-jour-ou-la-nuit<br>
 Addons et intégrations nécessaire.<br>
 Addon: 
