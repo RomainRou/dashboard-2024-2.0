@@ -43,7 +43,7 @@ Installation:<br>
 Ajouter le code dans lovelace.ui au debut de votre code<br>
 ![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/lovelace_1.png)<br>
 ![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/lovelace_2.png)<br>
-<br>Ensuite pour les cartes du dashboard:<br>
+<br>Ensuite pour les cartes du dashboard:<br>les screens sont ceux de l'ancienne version la nouvelle est identique sur le principe et la mise en forme mais avec un fonctionnement plus propre <br>
 ![screenshot](https://github.com/RomainRou/dashboard/blob/main/2.png)
 ![screenshot](https://github.com/RomainRou/dashboard/blob/main/3.png)
 ![screenshot](https://github.com/RomainRou/dashboard/blob/main/4.png)<br><br>
