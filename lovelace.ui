@@ -1,0 +1,1460 @@
+decluttering_templates:
+  template_card_room:
+    card:
+      type: custom:vertical-stack-in-card
+      cards:
+        - type: custom:mushroom-template-card
+          entity: '[[entity_1]]'
+          icon: mdi:[[icon]]
+          icon_color: |
+            {% if is_state('[[entity_1]]', 'on') or
+            is_state('[[entity_2]]', 'on') %}
+              #03a9f499
+            {% else %}
+              #0000
+            {% endif %}
+          primary: '[[primary]]'
+          secondary: >-
+            {{ states('[[sensor_temp]]') }}°C/{{ states('[[sensor_humidity]]')
+            }}%
+          layout: horizontal
+          tap_action:
+            action: navigate
+            navigation_path: '[[navigation]]'
+          double_tap_action:
+            action: none
+          hold_action:
+            action: none
+          multiline_secondary: true
+          badge_icon: ''
+          badge_color: ''
+          card_mod:
+            style:
+              mushroom-state-info$: |
+                .primary {
+                  position: relative;
+                  top: -50px;
+                  left: -155px;
+                  overflow: visible !important;
+                  white-space: normal !important;
+                  text-shadow: 1px 1px 0px  #000000 ;
+                }
+                .secondary {
+                  position: relative;
+                  overflow: visible !important;
+                  top: -49px;
+                  left: -155px;
+                  text-shadow: 1px 1px 0px  #000000 ;
+                }
+              mushroom-shape-icon$: |
+                .shape {
+                  position: relative;
+                  left: -43px;
+                  top: 55px;
+                }
+              .: |
+                :host {
+                  --mush-icon-size: 146px;
+                }
+              style: |
+                mushroom-badge-icon {
+                  left: 60px;
+                  top: 25px;
+                }
+                ha-card {
+                  background: none; 
+                }
+        - type: custom:mushroom-chips-card
+          chips:
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_1]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_1]]'
+                tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity_1]]'].attributes['icon'] %}
+                  {{ states['[[entity_1]]'].attributes['icon'] }}
+                  {% elif states['[[entity_1]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_1]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_2]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_2]]'
+                icon: |
+                  {% if states['[[entity_2]]'].attributes['icon'] %}
+                  {{ states['[[entity_2]]'].attributes['icon'] }}
+                  {% elif states['[[entity_2]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_2]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_2]]', 'on') %} 
+                  #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_3]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_3]]'
+                icon: |
+                  {% if states['[[entity_3]]'].attributes['icon'] %}
+                  {{ states['[[entity_3]]'].attributes['icon'] }}
+                  {% elif states['[[entity_3]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_3]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_3]]', 'on') %} 
+                  #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_4]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_4]]'
+                icon: |
+                  {% if states['[[entity_4]]'].attributes['icon'] %}
+                  {{ states['[[entity_4]]'].attributes['icon'] }}
+                  {% elif states['[[entity_4]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_4]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_4]]', 'on') %} 
+                  #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_5]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_5]]'
+                icon: |
+                  {% if states['[[entity_5]]'].attributes['icon'] %}
+                  {{ states['[[entity_5]]'].attributes['icon'] }}
+                  {% elif states['[[entity_5]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_5]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_5]]', 'on') %} 
+                  #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_alarme]]'
+                  state: armed_away
+              chip:
+                type: alarm-control-panel
+                entity: '[[entity_alarme]]'
+                tap_action:
+                  action: none
+                content_info: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_alarme]]'
+                  state: armed_night
+              chip:
+                type: alarm-control-panel
+                entity: '[[entity_alarme]]'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content_info: none
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  width: 66px;
+                  margin-left: 70%;
+                  top: -170px;
+                  background: none;
+                  --chip-border-width: 0;
+                }
+      card_mod:
+        style: |
+          ha-card {
+            height: 178px ;
+            margin: auto;
+            background-image: [[background-image]];
+            background-size: cover;
+            background-position: center;
+          }
+  template_card_room_systeme:
+    card:
+      type: custom:vertical-stack-in-card
+      cards:
+        - type: custom:mushroom-template-card
+          entity: '[[entity]]'
+          icon: mdi:[[icon]]
+          icon_color: |
+            {% if is_state('[[entity]]', 'on') %}
+              #03a9f499
+            {% else %}
+              #0000
+            {% endif %}
+          primary: '[[primary]]'
+          secondary: |-
+            {{ states('[[sensor_temp]]') }}°C
+            {{ states('[[sensor_power]]') }}W
+          layout: horizontal
+          tap_action:
+            action: navigate
+            navigation_path: '[[navigation]]'
+          double_tap_action:
+            action: none
+          hold_action:
+            action: none
+          multiline_secondary: true
+          badge_icon: ''
+          badge_color: ''
+          card_mod:
+            style:
+              mushroom-state-info$: |
+                .primary {
+                  font-size: 16px !important;
+                  position: relative;
+                  top: -50px;
+                  left: -155px;
+                  overflow: visible !important;
+                  white-space: normal !important;
+                }
+                .secondary {
+                  position: relative;
+                  overflow: visible !important;
+                  top: -52px;
+                  left: -155px;
+                }
+              mushroom-shape-icon$: |
+                .shape {
+                  position: relative;
+                  left: -43px;
+                  top: 30px;
+                }
+              .: |
+                :host {
+                  --mush-icon-size: 146px;
+                }
+              style: |
+                mushroom-badge-icon {
+                  left: 60px;
+                  top: 25px;
+                }
+                ha-card {
+                  background: none;
+                }
+        - type: custom:mushroom-chips-card
+          chips:
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_1]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity_1]]'].attributes['icon'] %}
+                  {{ states['[[entity_1]]'].attributes['icon'] }}
+                  {% elif states['[[entity_1]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_1]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                entity: '[[entity_1]]'
+                content: '[[content_1]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_2]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_2]]'
+                tap_action:
+                  action: none
+                icon: |  
+                  {% if states['[[entity_2]]'].attributes['icon'] %}
+                  {{ states['[[entity_2]]'].attributes['icon'] }}
+                  {% elif states['[[entity_2]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_2]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f499
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content_2]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_3]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_3]]'
+                icon: |  
+                  {% if states['[[entity_3]]'].attributes['icon'] %}
+                  {{ states['[[entity_3]]'].attributes['icon'] }}
+                  {% elif states['[[entity_3]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_3]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+                content: '[[content_3]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_4]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_4]]'
+                icon: |  
+                  {% if states['[[entity_4]]'].attributes['icon'] %}
+                  {{ states['[[entity_4]]'].attributes['icon'] }}
+                  {% elif states['[[entity_4]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_4]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content_4]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_5]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_5]]'
+                tap_action:
+                  action: none
+                icon: |  
+                  {% if states['[[entity_5]]'].attributes['icon'] %}
+                  {{ states['[[entity_5]]'].attributes['icon'] }}
+                  {% elif states['[[entity_5]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_5]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content_5]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_6]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_6]]'
+                icon: |  
+                  {% if states['[[entity_6]]'].attributes['icon'] %}
+                  {{ states['[[entity_6]]'].attributes['icon'] }}
+                  {% elif states['[[entity_6]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_6]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_6]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_7]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_7]]'  
+                icon: |  
+                  {% if states['[[entity_7]]'].attributes['icon'] %}
+                  {{ states['[[entity_7]]'].attributes['icon'] }}
+                  {% elif states['[[entity_7]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_7]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_7]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_8]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_8]]'  
+                icon: |  
+                  {% if states['[[entity_8]]'].attributes['icon'] %}
+                  {{ states['[[entity_8]]'].attributes['icon'] }}
+                  {% elif states['[[entity_8]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_8]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_8]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_9]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_9]]'  
+                icon: |  
+                  {% if states['[[entity_9]]'].attributes['icon'] %}
+                  {{ states['[[entity_9]]'].attributes['icon'] }}
+                  {% elif states['[[entity_9]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_9]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_9]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_10]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_10]]'
+                icon: |  
+                  {% if states['[[entity_10]]'].attributes['icon'] %}
+                  {{ states['[[entity_10]]'].attributes['icon'] }}
+                  {% elif states['[[entity_10]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_10]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_10]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_11]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_11]]'
+                icon: |  
+                  {% if states['[[entity_11]]'].attributes['icon'] %}
+                  {{ states['[[entity_11]]'].attributes['icon'] }}
+                  {% elif states['[[entity_11]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_11]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_11]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_12]]'
+                  state: 'on'
+              chip:
+                type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_12]]'
+                icon: |  
+                  {% if states['[[entity_12]]'].attributes['icon'] %}
+                  {{ states['[[entity_12]]'].attributes['icon'] }}
+                  {% elif states['[[entity_12]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_12]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_12]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_13]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_13]]'
+                icon: |  
+                  {% if states['[[entity_13]]'].attributes['icon'] %}
+                  {{ states['[[entity_13]]'].attributes['icon'] }}
+                  {% elif states['[[entity_13]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_13]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %                
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                content: '[[content_13]]'
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  width: 66px;
+                  margin-left:70%;
+                  top: -170px;
+                  background: none;
+                  --chip-border-width: 0;
+                }              
+      card_mod:
+        style: |
+          ha-card {
+            height: 178px ;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url(https://64.media.tumblr.com/6c528dab5498d431a101acd4398160b4/tumblr_o7vrxl8Uk11runoqyo10_540.gifv);
+            background-size: cover;
+            background-position: center;
+          } 
+  template_card_room_power:
+    card:
+      type: custom:vertical-stack-in-card
+      cards:
+        - type: custom:mushroom-template-card
+          entity: '[[entity_1]]'
+          icon: mdi:[[icon]]
+          icon_color: |
+            {% if is_state('[[entity_1]]', 'on') or
+            is_state('[[entity_2]]', 'on') %}
+              #03a9f499
+            {% else %}
+              #0000
+            {% endif %}
+          primary: '[[primary]]'
+          secondary: >-
+            {{ states('[[sensor_temp]]') }}°C/{{ states('[[sensor_humidity]]')
+            }}%
+
+            {{ states('[[sensor_power]]') }}W
+          layout: horizontal
+          tap_action:
+            action: navigate
+            navigation_path: '[[navigation]]'
+          double_tap_action:
+            action: none
+          hold_action:
+            action: none
+          multiline_secondary: true
+          badge_icon: ''
+          badge_color: ''
+          card_mod:
+            style:
+              mushroom-state-info$: |
+                .primary {
+                  position: relative;
+                  top: -50px;
+                  left: -155px;
+                  overflow: visible !important;
+                  white-space: normal !important;
+                  text-shadow: 1px 1px 0px  #000000 ;
+                }
+                .secondary {
+                  position: relative;
+                  overflow: visible !important;
+                  top: -49px;
+                  left: -155px;
+                  text-shadow: 1px 1px 0px  #000000 ;
+                }
+              mushroom-shape-icon$: |
+                .shape {
+                  position: relative;
+                  left: -43px;
+                  top: 55px;
+                }
+              .: |
+                :host {
+                  --mush-icon-size: 146px;
+                }
+              style: |
+                mushroom-badge-icon {
+                  left: 60px;
+                  top: 25px;
+                }
+                ha-card {
+                  background: none; 
+                }
+        - type: custom:mushroom-chips-card
+          chips:
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_1]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_1]]'
+                tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity_1]]'].attributes['icon'] %}
+                  {{ states['[[entity_1]]'].attributes['icon'] }}
+                  {% elif states['[[entity_1]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_1]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_2]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_2]]'
+                icon: |
+                  {% if states['[[entity_2]]'].attributes['icon'] %}
+                  {{ states['[[entity_2]]'].attributes['icon'] }}
+                  {% elif states['[[entity_2]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_2]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_3]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_3]]'
+                icon: |
+                  {% if states['[[entity_3]]'].attributes['icon'] %}
+                  {{ states['[[entity_3]]'].attributes['icon'] }}
+                  {% elif states['[[entity_3]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_3]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_4]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_4]]'
+                icon: |
+                  {% if states['[[entity_4]]'].attributes['icon'] %}
+                  {{ states['[[entity_4]]'].attributes['icon'] }}
+                  {% elif states['[[entity_4]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_4]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_5]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_5]]'
+                icon: |
+                  {% if states['[[entity_5]]'].attributes['icon'] %}
+                  {{ states['[[entity_5]]'].attributes['icon'] }}
+                  {% elif states['[[entity_5]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_5]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[binary_sensor_1]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[binary_sensor_1]]'
+                icon: >
+                  {% if states['[[binary_sensor_1]]'].attributes['icon'] %}
+
+                  {{ states['[[binary_sensor_1]]'].attributes['icon'] }}
+
+                  {% elif
+                  states['[[binary_sensor_1]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[binary_sensor_1]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    red
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[binary_sensor_2]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[binary_sensor_2]]'
+                icon: >
+                  {% if states['[[binary_sensor_2]]'].attributes['icon'] %}
+
+                  {{ states['[[binary_sensor_2]]'].attributes['icon'] }}
+
+                  {% elif
+                  states['[[binary_sensor_2]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[binary_sensor_2]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    red
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[binary_sensor_3]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[binary_sensor]]'
+                icon: >
+                  {% if states['[[binary_sensor_3]]'].attributes['icon'] %}
+
+                  {{ states['[[binary_sensor_3]]'].attributes['icon'] }}
+
+                  {% elif
+                  states['[[binary_sensor_3]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[binary_sensor_3]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    red
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[binary_sensor_4]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[binary_sensor_4]]'
+                icon: >
+                  {% if states['[[binary_sensor_4]]'].attributes['icon'] %}
+
+                  {{ states['[[binary_sensor_4]]'].attributes['icon'] }}
+
+                  {% elif
+                  states['[[binary_sensor_4]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[binary_sensor_4]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    red
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[binary_sensor_5]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[binary_sensor_5]]'
+                icon: >
+                  {% if states['[[binary_sensor_5]]'].attributes['icon'] %}
+
+                  {{ states['[[binary_sensor_5]]'].attributes['icon'] }}
+
+                  {% elif
+                  states['[[binary_sensor_5]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[binary_sensor_5]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                    red
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_alarme]]'
+                  state: armed_away
+              chip:
+                type: alarm-control-panel
+                entity: '[[entity_alarme]]'
+                tap_action:
+                  action: none
+                content_info: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_alarme]]'
+                  state: triggered
+              chip:
+                type: alarm-control-panel
+                entity: '[[entity_alarme]]'
+                tap_action:
+                  action: none
+                content_info: none
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_alarme]]'
+                  state: armed_night
+              chip:
+                type: alarm-control-panel
+                entity: '[[entity_alarme]]'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content_info: none
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  width: 66px;
+                  margin-left: 70%;
+                  top: -170px;
+                  background: none;
+                  --chip-border-width: 0;
+                }
+      card_mod:
+        style: |
+          ha-card {
+            height: 178px ;
+            margin: auto;
+            background-image: [[background-image]];
+            background-size: cover;
+            background-position: center;
+          }
+  template_card_room_terra:
+    card:
+      type: custom:vertical-stack-in-card
+      cards:
+        - type: custom:mushroom-template-card
+          entity: '[[entity]]'
+          icon: mdi:[[icon]]
+          icon_color: |
+            {% if is_state('[[entity]]', 'on') or
+            is_state('[[entity_1]]', 'on') %}
+              #03a9f499
+            {% else %}
+              #0000
+            {% endif %}
+          primary: '[[primary]]'
+          secondary: >-
+            {{ states('[[sensor_temp]]') }}°C/{{ states('[[sensor_temp_1]]')}}°C
+            {{ states('[[sensor_humidity]]') }}%/{{
+            states('[[sensor_humidity_1]]') }}% 
+
+            {{ states('[[sensor_power]]') | round(0)}}W/{{
+            states('[[sensor_power_1]]') }}W
+          layout: horizontal
+          tap_action:
+            action: navigate
+            navigation_path: '[[navigation]]'
+          double_tap_action:
+            action: none
+          hold_action:
+            action: none
+          multiline_secondary: true
+          badge_icon: ''
+          badge_color: ''
+          card_mod:
+            style:
+              mushroom-state-info$: |
+                .primary {
+                  position: relative;
+                  top: -50px;
+                  left: -155px;
+                  overflow: visible !important;
+                  white-space: normal !important;
+                  text-shadow: 1px 1px 0px  #000000 ;
+                }
+                .secondary {
+                  position: relative;
+                  overflow: visible !important;
+                  top: -49px;
+                  left: -155px;
+                  text-shadow: 1px 1px 0px  #000000 ;
+                }
+              mushroom-shape-icon$: |
+                .shape {
+                  position: relative;
+                  left: -43px;
+                  top: 55px;
+                }
+              .: |
+                :host {
+                  --mush-icon-size: 146px;
+                }
+              style: |
+                mushroom-badge-icon {
+                  left: 60px;
+                  top: 25px;
+                }
+                ha-card {
+                  background: none; 
+                }
+        - type: custom:mushroom-chips-card
+          chips:
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity]]'
+                tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity]]'].attributes['icon'] %}
+                  {{ states['[[entity]]'].attributes['icon'] }}
+                  {% elif states['[[entity]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_1]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_1]]'
+                icon: |
+                  {% if states['[[entity_1]]'].attributes['icon'] %}
+                  {{ states['[[entity_1]]'].attributes['icon'] }}
+                  {% elif states['[[entity_1]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_1]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_1]]', 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+                content: '[[content_1]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_2]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_2]]'
+                tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity_2]]'].attributes['icon'] %}
+                  {{ states['[[entity_2]]'].attributes['icon'] }}
+                  {% elif states['[[entity_2]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_2]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_3]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_3]]'
+                tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity_3]]'].attributes['icon'] %}
+                  {{ states['[[entity_3]]'].attributes['icon'] }}
+                  {% elif states['[[entity_3]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_3]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_4]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_4]]'
+                tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity_4]]'].attributes['icon'] %}
+                  {{ states['[[entity_4]]'].attributes['icon'] }}
+                  {% elif states['[[entity_4]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_4]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_5]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_5]]'
+                tap_action:
+                  action: none
+                icon: |
+                  {% if states['[[entity_5]]'].attributes['icon'] %}
+                  {{ states['[[entity_5]]'].attributes['icon'] }}
+                  {% elif states['[[entity_5]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_5]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state(entity, 'on') %} 
+                   #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                content: '[[content_5]]'
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  width: 66px;
+                  margin-left: 70%;
+                  top: -170px;
+                  background: none;
+                  --chip-border-width: 0;
+                }
+      card_mod:
+        style: |
+          ha-card {
+            height: 178px ;
+            margin: auto;
+            background-image: url(https://i.pinimg.com/originals/f1/07/f3/f107f348c34103a4f7632d469858d54e.gif);
+            background-size: cover;
+            background-position: center;
+          }        
+  template_card_meteo:
+    card:
+      type: horizontal-stack
+      cards:
+        - type: custom:vertical-stack-in-card
+          cards:
+            - type: custom:mushroom-template-card
+              entity: '[[entity_1]]'
+              icon: |-
+                {% if is_state("[[entity_1]]", "sunny") %}
+                  mdi:weather-sunny
+                {% elif is_state("[[entity_1]]", "partlycloudy") %}
+                  mdi:weather-partly-cloudy
+                {% elif is_state("[[entity_1]]", "cloudy") %}
+                  mdi:weather-cloudy
+                {% elif is_state("[[entity_1]]", "mostlycloudy") %}
+                  mdi:weather-cloudy
+                {% elif is_state("[[entity_1]]", "clear-night") %}
+                  mdi:weather-night
+                {% elif is_state("[[entity_1]]", "fog") %}
+                  mdi:weather-fog
+                {% elif is_state("[[entity_1]]", "rainy") %}
+                  mdi:weather-rainy
+                {% elif is_state("[[entity_1]]", "lightning-rainy") %}
+                  mdi:weather-lightning-rainy
+                {% elif is_state("[[entity_1]]", "night-partly-cloudy") %}
+                  mdi:weather-night-partly-cloudy
+                {% elif is_state("[[entity_1]]", "hail") %}
+                  mdi:weather-hail
+                {% elif is_state("[[entity_1]]", "lightning") %}
+                  mdi:weather-lightning
+                {% elif is_state("[[entity_1]]", "pouring") %}
+                  mdi:weather-pouring
+                {% elif is_state("[[entity_1]]", "snowy") %}
+                  mdi:weather-snowy
+                {% elif is_state("[[entity_1]]", "snowy-rainy") %}
+                  mdi:weather-snowy-rainy 
+                {% elif is_state("[[entity_1]]", "windy") %}
+                  mdi:weather-windy 
+                {% elif is_state("[[entity_1]]", "windy-variant") %}
+                  mdi:weather-windy-variant 
+                {% endif %}
+              icon_color: |
+                {% if is_state('[[sensor]]', 'off') %}
+                  #00000099
+                {% else %}  
+                  #03a9f499
+                {% endif %}
+              primary: '[[primary]]'
+              secondary: >-
+                {{ states('[[sensor_temp]]') }}°C/{{
+                states('sensor.average_temperature') | round(1) }}°C
+
+                {{ states('[[sensor_humidity]]') }}%/{{
+                states('sensor.average_humidity') | round(1) }}%
+
+                Puissance totale maison {{ states('sensor.total_power_maison') |
+                round(1) }}W
+              layout: horizontal
+              tap_action:
+                action: navigate
+                navigation_path: '[[navigation]]'
+              double_tap_action:
+                action: none
+              hold_action:
+                action: none
+              multiline_secondary: true
+              card_mod:
+                style:
+                  mushroom-state-info$: |
+                    .primary {
+                      position: relative;
+                      top: -50px;
+                      left: -155px;
+                      overflow: visible !important;
+                      white-space: normal !important;
+                      text-shadow: 1px 1px 0px  #000000 ;
+                      z-index: 1;
+                    }
+                    .secondary {
+                      position: relative;
+                      overflow: visible !important;
+                      top: -49px;
+                      left: -155px;
+                      text-shadow: 1px 1px 0px  #000000 ;
+                      z-index: 1;
+                    }
+                  mushroom-shape-icon$: |
+                    .shape {
+                      position: relative;
+                      left: -43px;
+                      top: 30px;
+                    }
+                  .: |
+                    :host {
+                      --mush-icon-size: 146px;
+                    }
+                  style: |
+                    mushroom-badge-icon {
+                      left: 60px;
+                      top: 25px;
+                    }
+                    ha-card {
+                      height: 153px;
+                      margin: auto;
+                      background-image: url('{% if is_state("[[entity_1]]", "sunny") %}https://i.pinimg.com/originals/d8/a2/ee/d8a2eee27b91f50078645085e4057f3c.gif{% elif is_state("[[entity_1]]", "hail") %}https://i.gifer.com/DJxO.gif{% elif is_state("[[entity_1]]", "partlycloudy") %}https://i.gifer.com/g1vA.gif{% elif is_state("[[entity_1]]", "cloudy") %}https://i.gifer.com/g1vA.gif{% elif is_state("[[entity_1]]", "mostlycloudy") %}https://i.gifer.com/Lx0q.gif{% elif is_state("[[entity_1]]", "clear-night") %}https://i.gifer.com/IrS.gif{% elif is_state("[[entity_1]]", "fog") %}https://i.gifer.com/8AC8.gif{% elif is_state("[[entity_1]]", "rainy") %}https://i.gifer.com/FEuz.gif{% endif %}');
+                      background-size: cover;
+                      background-position: center;
+                      display: flex;
+                    }
+  template_clock_card:
+    card:
+      type: horizontal-stack
+      cards:
+        - type: custom:vertical-stack-in-card
+          cards:
+            - type: custom:digital-clock
+              dateFormat:
+                weekday: short
+                day: 2-digit
+                month: short
+              timeFormat:
+                hour: 2-digit
+                minute: 2-digit
+                second: 2-digit
+              card_mod:
+                style: |
+                  ha-card {
+                    margin: auto;
+                    background: none;
+                    filter: opacity(100%);
+                    text-shadow: 20px 20px 20px black;
+                    border: none;
+                    height: 170px;
+                  }
