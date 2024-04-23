@@ -1,0 +1,38 @@
+alias: "Notification: modification emploi du temps du prochain jour"
+description: Pronote notif emploi du temps du prochain jour
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.pronote_NOM PRENOM_timetable_next_day
+    attribute: canceled_lessons_counter
+    to: null
+condition:
+  - condition: template
+    value_template: >
+      {% set items =
+      state_attr('sensor.pronote_NOM PRENOM_timetable_next_day', 'lessons')
+      %}
+
+      {{ true if items | selectattr('canceled', '==', true) | list or items |
+      selectattr('canceled', '==', false) | selectattr('status', '!=', none) |
+      list else false }}
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.pronote_NOM PRENOM_timetable_next_day
+        state: "0"
+action:
+  - service: notify.telegram
+    data:
+      title: Pronote
+      message: >-
+        {% set items =
+        state_attr('sensor.pronote_NOM PRENOM_timetable_next_day','lessons')
+        %} {%- for item in items  -%}
+          {%- if item.canceled == True -%}
+            {{ item.lesson }} : {{ item.status }}, le prochain jour de cour de {{ item.start_time }} à {{ item.end_time}}{{"\n"}}
+          {%- endif -%}
+          {%- if item.canceled == false and item.status != None -%}
+            {{ item.lesson }} : {{ item.status }} le {{as_timestamp(item.start_at) | int | timestamp_custom('%d/%m/%Y', true)}} de {{ item.start_time }} à {{ item.end_time}}{{"\n"}}
+          {%- endif -%}      
+        {%- endfor -%}
