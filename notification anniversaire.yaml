@@ -1,0 +1,19 @@
+alias: "Notification: anniversaire à souhaiter"
+description: Rappel anniversaire
+trigger:
+  - platform: calendar
+    event: start
+    offset: "10:0:0"
+    entity_id: calendar.anniversaire
+condition:
+  - condition: state
+    entity_id: calendar.anniversaire
+    state: "on"
+    attribute: message
+action:
+  - service: notify.telegram
+    data:
+      message: >-
+        Il y a l'anniversaire de {{
+        states.calendar.anniversaire.attributes.message }} a souhaiter
+        aujourd'hui
