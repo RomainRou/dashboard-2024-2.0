@@ -5,7 +5,8 @@ un tuto pour l'installation est dispo en bas de page<br>
 update:<br>
 22/04/2024-23/04/2024: la refonte du code de base en passant decluttering-card a permis d'allégé le code du dashboard. adaptation automatique des icones chips en fonction de l'entité (si pas d'icone afficher il faut la definir dans les options de l'entité choisis). les chips alarmo sont intégré dans les cartes room et room_power[terminer]<br>
 23/04/2024: Mise a disposition de 4 automatisations pour des notification telegram ( - service: notify.telegram peut etre remplacer par des notification HA notify ) 3 pronote (modification emploi du temps du jour et du prochain jour, devoirs a faire (seulement ceux qui ne sont pas fait et pour les 2 prochains jours) , 1 pour local calendar pour etre notifier des anniversaires renseigner dans le calendrier.[terminer]<br>
-14/04/2024: Ajout d'une carte  template_card_camera: permettant l'integration de 5 cameras les chips s'affiche quand les cameras sont en mode recording.L'icone et le background ne sont pas des variables il faut les changer directement dans la partie decluttering.[terminer]<br>
+14/04/2024 update 1: Ajout d'une carte  template_card_camera: permettant l'integration de 5 cameras les chips s'affiche quand les cameras sont en mode recording.L'icone et le background ne sont pas des variables il faut les changer directement dans la partie decluttering.[terminer]<br>
+14/04/2024 update 2: augmentation du nombre de cameras passe de 5 a 12 , modification des chips s'affiche horizontalement jusqu'a 4 chips sur la meme ligne avant de passer a la ligne.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
