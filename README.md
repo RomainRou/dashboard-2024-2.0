@@ -5,17 +5,20 @@ un tuto pour l'installation est dispo en bas de page<br>
 update:<br>
 22/04/2024-23/04/2024: la refonte du code de base en passant decluttering-card a permis d'allégé le code du dashboard. adaptation automatique des icones chips en fonction de l'entité (si pas d'icone afficher il faut la definir dans les options de l'entité choisis). les chips alarmo sont intégré dans les cartes room et room_power[terminer]<br>
 23/04/2024: Mise a disposition de 4 automatisations pour des notification telegram ( - service: notify.telegram peut etre remplacer par des notification HA notify ) 3 pronote (modification emploi du temps du jour et du prochain jour, devoirs a faire (seulement ceux qui ne sont pas fait et pour les 2 prochains jours) , 1 pour local calendar pour etre notifier des anniversaires renseigner dans le calendrier.[terminer]<br>
-14/04/2024 update 1: Ajout d'une carte  template_card_camera: permettant l'integration de 5 cameras les chips s'affiche quand les cameras sont en mode recording.L'icone et le background ne sont pas des variables il faut les changer directement dans la partie decluttering.[terminer]<br>
-14/04/2024 update 2: augmentation du nombre de cameras passe de 5 a 12 , modification des chips s'affiche horizontalement jusqu'a 4 chips sur la meme ligne avant de passer a la ligne.[terminer]<br>
+24/04/2024 update 1: Ajout d'une carte  template_card_camera: permettant l'integration de 5 cameras les chips s'affiche quand les cameras sont en mode recording.L'icone et le background ne sont pas des variables il faut les changer directement dans la partie decluttering.[terminer]<br>
+24/04/2024 update 2: augmentation du nombre de cameras passe de 5 a 12 , modification des chips s'affiche horizontalement jusqu'a 4 chips sur la meme ligne avant de passer a la ligne.[terminer]<br>
+25/04/2024: Changement du fond de la carte clock, augmentation de la taille des ecritures de la carte.[terminer]<br>
+26/04/2024: Toutes les modifications ont été apporté sur la carte systeme augmentation du nombres de chip passe de 13 a 15, resolution de probleme d'affichage des icones, suppression de la ligne de capteur de temperature.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
 Le code des cartes est dans le fichier carte dashboard<br>
 Pour mettre vos entitées il suffit de les mettre dans les cartes du dashboard elles sont sur les lignes entity_1 à 5:<br>
 cartes template_card_room: (carte avec infos températures et humidité )et template_card_room_power:(idem que la template_card_room mais avec rajout de consommation: sensor_power)(possibilté de mettre 5 entitées différentes)<br>
-carte template_card_room_systeme: (possibilité de mettre 13 entitées différentes)<br>
+carte template_card_room_systeme: (possibilité de mettre 15 entitées différentes)<br>
 carte template_card_room_terra: (possibilité de mettre 6 entitées diférentes)<br>
 carte template_card_meteo: (adaptation automatique en changeant les entitées et sensor avec ceux de votre ville)<br>
+carte template_card_camera: (possibillité de mettre jusqu'a 12 cameras differente , les chips ne s'affiche qu'en mode recording)<br>
 Les backgrounds des cartes peuvent etre changer directement dans les cartes<br>
 Ne pas oublier de changer les entités dans les popups <br>
 pour le sensor "il fait nuit" le lien pour la création https://www.sigalou-domotique.fr/je-voudrais-savoir-si-nous-sommes-le-jour-ou-la-nuit<br>
