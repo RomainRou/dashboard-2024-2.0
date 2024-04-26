@@ -8,7 +8,7 @@ decluttering_templates:
           icon: mdi:cctv
           icon_color: |
             {% if is_state('[[entity_1]]', 'recording') or
-            is_state('[[entity_2]]', 'recording') or
+            is_state('[[entity_2]]', 'recording') or 
             is_state('[[entity_3]]', 'recording') or
             is_state('[[entity_4]]', 'recording') or
             is_state('[[entity_5]]', 'recording') or
@@ -116,8 +116,9 @@ decluttering_templates:
                   {% else %}
                     mdi:device-unknown
                   {% endif %}
-                icon_color: |
-                  {% if is_state('[[entity_2]]', 'recording') %} 
+                icon_color: >
+                  {% if is_state('[[entity_2]]', 'recording') or
+                  is_state('[[entity_2]]', 'on') %} 
                     #03a9f4
                   {% endif %}
                 hold_action:
@@ -385,7 +386,7 @@ decluttering_templates:
                 double_tap_action:
                   action: none
                 tap_action:
-                  action: none                  
+                  action: none
           card_mod:
             style:
               .: |
@@ -413,7 +414,10 @@ decluttering_templates:
           icon: mdi:[[icon]]
           icon_color: |
             {% if is_state('[[entity_1]]', 'on') or
-            is_state('[[entity_2]]', 'on') %}
+            is_state('[[entity_2]]', 'on') or
+            is_state('[[entity_3]]', 'on') or
+            is_state('[[entity_4]]', 'on') or
+            is_state('[[entity_5]]', 'on') %}
               #03a9f499
             {% else %}
               #0000
@@ -515,7 +519,7 @@ decluttering_templates:
                   {% endif %}
                 icon_color: |
                   {% if is_state('[[entity_2]]', 'on') %} 
-                  #03a9f4
+                    #03a9f4
                   {% endif %}
                 hold_action:
                   action: none
@@ -541,7 +545,7 @@ decluttering_templates:
                   {% endif %}
                 icon_color: |
                   {% if is_state('[[entity_3]]', 'on') %} 
-                  #03a9f4
+                    #03a9f4
                   {% endif %}
                 hold_action:
                   action: none
@@ -567,7 +571,7 @@ decluttering_templates:
                   {% endif %}
                 icon_color: |
                   {% if is_state('[[entity_4]]', 'on') %} 
-                  #03a9f4
+                    #03a9f4
                   {% endif %}
                 hold_action:
                   action: none
@@ -593,7 +597,7 @@ decluttering_templates:
                   {% endif %}
                 icon_color: |
                   {% if is_state('[[entity_5]]', 'on') %} 
-                  #03a9f4
+                    #03a9f4
                   {% endif %}
                 hold_action:
                   action: none
@@ -660,9 +664,7 @@ decluttering_templates:
               #0000
             {% endif %}
           primary: '[[primary]]'
-          secondary: |-
-            {{ states('[[sensor_temp]]') }}°C
-            {{ states('[[sensor_power]]') }}W
+          secondary: '{{ states(''[[sensor_power]]'') }}W'
           layout: horizontal
           tap_action:
             action: navigate
@@ -724,6 +726,7 @@ decluttering_templates:
                   action: none
                 double_tap_action:
                   action: none
+                entity: '[[entity_1]]'
                 icon: |
                   {% if states['[[entity_1]]'].attributes['icon'] %}
                   {{ states['[[entity_1]]'].attributes['icon'] }}
@@ -733,10 +736,9 @@ decluttering_templates:
                     mdi:device-unknown
                   {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_1]]', 'on') %} 
                    #03a9f4
                   {% endif %}
-                entity: '[[entity_1]]'
                 content: '[[content_1]]'
             - type: conditional
               conditions:
@@ -745,25 +747,25 @@ decluttering_templates:
                   state: 'on'
               chip:
                 type: template
-                entity: '[[entity_2]]'
                 tap_action:
                   action: none
-                icon: |  
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_2]]'
+                icon: |
                   {% if states['[[entity_2]]'].attributes['icon'] %}
                   {{ states['[[entity_2]]'].attributes['icon'] }}
                   {% elif states['[[entity_2]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_2]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
-                icon_color: |
-                  {% if is_state(entity, 'on') %} 
-                   #03a9f499
                   {% endif %}
-                hold_action:
-                  action: none
-                double_tap_action:
-                  action: none
+                icon_color: |
+                  {% if is_state('[[entity_2]]', 'on') %} 
+                   #03a9f4
+                  {% endif %}
                 content: '[[content_2]]'
             - type: conditional
               conditions:
@@ -772,25 +774,25 @@ decluttering_templates:
                   state: 'on'
               chip:
                 type: template
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
                 entity: '[[entity_3]]'
-                icon: |  
+                icon: |
                   {% if states['[[entity_3]]'].attributes['icon'] %}
                   {{ states['[[entity_3]]'].attributes['icon'] }}
                   {% elif states['[[entity_3]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_3]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_3]]', 'on') %} 
                    #03a9f4
                   {% endif %}
-                hold_action:
-                  action: none
-                double_tap_action:
-                  action: none
-                tap_action:
-                  action: none
                 content: '[[content_3]]'
             - type: conditional
               conditions:
@@ -799,25 +801,25 @@ decluttering_templates:
                   state: 'on'
               chip:
                 type: template
-                entity: '[[entity_4]]'
-                icon: |  
-                  {% if states['[[entity_4]]'].attributes['icon'] %}
-                  {{ states['[[entity_4]]'].attributes['icon'] }}
-                  {% elif states['[[entity_4]]'].attributes['device_class'] %}
-                    mdi:{{ states['[[entity_4]]'].attributes['device_class'] }}
-                  {% else %}
-                    mdi:device-unknown
-                  {% endif %
-                icon_color: |
-                  {% if is_state(entity, 'on') %} 
-                   #03a9f4
-                  {% endif %}
                 tap_action:
                   action: none
                 hold_action:
                   action: none
                 double_tap_action:
                   action: none
+                entity: '[[entity_4]]'
+                icon: |
+                  {% if states['[[entity_4]]'].attributes['icon'] %}
+                  {{ states['[[entity_4]]'].attributes['icon'] }}
+                  {% elif states['[[entity_4]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_4]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_4]]', 'on') %} 
+                   #03a9f4
+                  {% endif %}
                 content: '[[content_4]]'
             - type: conditional
               conditions:
@@ -826,25 +828,25 @@ decluttering_templates:
                   state: 'on'
               chip:
                 type: template
-                entity: '[[entity_5]]'
                 tap_action:
                   action: none
-                icon: |  
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                entity: '[[entity_5]]'
+                icon: |
                   {% if states['[[entity_5]]'].attributes['icon'] %}
                   {{ states['[[entity_5]]'].attributes['icon'] }}
                   {% elif states['[[entity_5]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_5]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_5]]', 'on') %} 
                    #03a9f4
                   {% endif %}
-                hold_action:
-                  action: none
-                double_tap_action:
-                  action: none
                 content: '[[content_5]]'
             - type: conditional
               conditions:
@@ -860,16 +862,16 @@ decluttering_templates:
                 double_tap_action:
                   action: none
                 entity: '[[entity_6]]'
-                icon: |  
+                icon: |
                   {% if states['[[entity_6]]'].attributes['icon'] %}
                   {{ states['[[entity_6]]'].attributes['icon'] }}
                   {% elif states['[[entity_6]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_6]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_6]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_6]]'
@@ -886,17 +888,17 @@ decluttering_templates:
                   action: none
                 double_tap_action:
                   action: none
-                entity: '[[entity_7]]'  
-                icon: |  
+                entity: '[[entity_7]]'
+                icon: |
                   {% if states['[[entity_7]]'].attributes['icon'] %}
                   {{ states['[[entity_7]]'].attributes['icon'] }}
                   {% elif states['[[entity_7]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_7]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_7]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_7]]'
@@ -913,17 +915,17 @@ decluttering_templates:
                   action: none
                 double_tap_action:
                   action: none
-                entity: '[[entity_8]]'  
-                icon: |  
+                entity: '[[entity_8]]'
+                icon: |
                   {% if states['[[entity_8]]'].attributes['icon'] %}
                   {{ states['[[entity_8]]'].attributes['icon'] }}
                   {% elif states['[[entity_8]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_8]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_8]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_8]]'
@@ -940,17 +942,17 @@ decluttering_templates:
                   action: none
                 double_tap_action:
                   action: none
-                entity: '[[entity_9]]'  
-                icon: |  
+                entity: '[[entity_9]]'
+                icon: |
                   {% if states['[[entity_9]]'].attributes['icon'] %}
                   {{ states['[[entity_9]]'].attributes['icon'] }}
                   {% elif states['[[entity_9]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_9]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_9]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_9]]'
@@ -968,16 +970,16 @@ decluttering_templates:
                 double_tap_action:
                   action: none
                 entity: '[[entity_10]]'
-                icon: |  
+                icon: |
                   {% if states['[[entity_10]]'].attributes['icon'] %}
                   {{ states['[[entity_10]]'].attributes['icon'] }}
                   {% elif states['[[entity_10]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_10]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_10]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_10]]'
@@ -995,16 +997,16 @@ decluttering_templates:
                 double_tap_action:
                   action: none
                 entity: '[[entity_11]]'
-                icon: |  
+                icon: |
                   {% if states['[[entity_11]]'].attributes['icon'] %}
                   {{ states['[[entity_11]]'].attributes['icon'] }}
                   {% elif states['[[entity_11]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_11]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_11]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_11]]'
@@ -1022,16 +1024,16 @@ decluttering_templates:
                 double_tap_action:
                   action: none
                 entity: '[[entity_12]]'
-                icon: |  
+                icon: |
                   {% if states['[[entity_12]]'].attributes['icon'] %}
                   {{ states['[[entity_12]]'].attributes['icon'] }}
                   {% elif states['[[entity_12]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_12]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %
+                  {% endif %}
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_12]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_12]]'
@@ -1043,19 +1045,73 @@ decluttering_templates:
               chip:
                 type: template
                 entity: '[[entity_13]]'
-                icon: |  
+                icon: |
                   {% if states['[[entity_13]]'].attributes['icon'] %}
                   {{ states['[[entity_13]]'].attributes['icon'] }}
                   {% elif states['[[entity_13]]'].attributes['device_class'] %}
                     mdi:{{ states['[[entity_13]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
-                  {% endif %                
+                  {% endif %}               
                 icon_color: |
-                  {% if is_state(entity, 'on') %} 
+                  {% if is_state('[[entity_13]]', 'on') %} 
                    #03a9f4
                   {% endif %}
                 content: '[[content_13]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_14]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_14]]'
+                icon: |
+                  {% if states['[[entity_14]]'].attributes['icon'] %}
+                  {{ states['[[entity_14]]'].attributes['icon'] }}
+                  {% elif states['[[entity_14]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_14]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_14]]', 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+                content: '[[content_14]]'
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[entity_15]]'
+                  state: 'on'
+              chip:
+                type: template
+                entity: '[[entity_15]]'
+                icon: |
+                  {% if states['[[entity_15]]'].attributes['icon'] %}
+                  {{ states['[[entity_15]]'].attributes['icon'] }}
+                  {% elif states['[[entity_15]]'].attributes['device_class'] %}
+                    mdi:{{ states['[[entity_15]]'].attributes['device_class'] }}
+                  {% else %}
+                    mdi:device-unknown
+                  {% endif %}
+                icon_color: |
+                  {% if is_state('[[entity_15]]', 'on') %} 
+                    #03a9f4
+                  {% endif %}
+                hold_action:
+                  action: none
+                double_tap_action:
+                  action: none
+                tap_action:
+                  action: none
+                content: '[[content_15]]'
           card_mod:
             style:
               .: |
@@ -1065,14 +1121,14 @@ decluttering_templates:
                   top: -170px;
                   background: none;
                   --chip-border-width: 0;
-                }              
+                }               
       card_mod:
         style: |
           ha-card {
             height: 178px ;
             margin-left: auto;
             margin-right: auto;
-            background-image: url(https://64.media.tumblr.com/6c528dab5498d431a101acd4398160b4/tumblr_o7vrxl8Uk11runoqyo10_540.gifv);
+            background-image: url('[[background-image]]');
             background-size: cover;
             background-position: center;
           } 
@@ -1085,7 +1141,10 @@ decluttering_templates:
           icon: mdi:[[icon]]
           icon_color: |
             {% if is_state('[[entity_1]]', 'on') or
-            is_state('[[entity_2]]', 'on') %}
+            is_state('[[entity_2]]', 'on') or
+            is_state('[[entity_3]]', 'on') or
+            is_state('[[entity_4]]', 'on') or
+            is_state('[[entity_5]]', 'on') %}
               #03a9f499
             {% else %}
               #0000
@@ -1296,7 +1355,7 @@ decluttering_templates:
                   {% endif %}
                 icon_color: |
                   {% if is_state(entity, 'on') %} 
-                    red
+                    #ff0000
                   {% endif %}
                 hold_action:
                   action: none
@@ -1485,7 +1544,11 @@ decluttering_templates:
           icon: mdi:[[icon]]
           icon_color: |
             {% if is_state('[[entity]]', 'on') or
-            is_state('[[entity_1]]', 'on') %}
+            is_state('[[entity_1]]', 'on') or
+            is_state('[[entity_2]]', 'on') or
+            is_state('[[entity_3]]', 'on') or
+            is_state('[[entity_4]]', 'on') or
+            is_state('[[entity_5]]', 'on') %}
               #03a9f499
             {% else %}
               #0000
@@ -1724,7 +1787,7 @@ decluttering_templates:
           ha-card {
             height: 178px ;
             margin: auto;
-            background-image: url(https://i.pinimg.com/originals/f1/07/f3/f107f348c34103a4f7632d469858d54e.gif);
+            background-image: url('[[background-image]]');
             background-size: cover;
             background-position: center;
           }        
@@ -1846,9 +1909,9 @@ decluttering_templates:
           cards:
             - type: custom:digital-clock
               dateFormat:
-                weekday: short
+                weekday: long
                 day: 2-digit
-                month: short
+                month: long
               timeFormat:
                 hour: 2-digit
                 minute: 2-digit
@@ -1857,9 +1920,10 @@ decluttering_templates:
                 style: |
                   ha-card {
                     margin: auto;
-                    background: none;
+                    background-color: #03a9f4;
                     filter: opacity(100%);
                     text-shadow: 20px 20px 20px black;
+                    font-size: 35px;
                     border: none;
                     height: 170px;
-                  }
+                    }
