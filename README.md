@@ -9,7 +9,8 @@ update:<br>
 24/04/2024 update 2: Augmentation du nombre de cameras passe de 5 a 12 , modification des chips s'affiche horizontalement jusqu'a 4 chips sur la meme ligne avant de passer a la ligne.[terminer]<br>
 25/04/2024: Changement du fond de la carte clock, augmentation de la taille des ecritures de la carte.[terminer]<br>
 26/04/2024: update 1: Toutes les modifications ont été apporté sur la carte systeme augmentation du nombres de chip passe de 13 a 15, resolution de probleme d'affichage des icones, suppression de la ligne de capteur de temperature.[terminer]<br>
-26/04/2024 update 2: Suppression de la carte template_card_room_power et template_card_room_systeme maintenant la carte template_card_room regroupe les 3 precedentes cartes avec passage des chips a 20 entitées (attention il faut rajouter - content: null pour eviter l'affichage ou - content: NOM de l'entitée).[terminer] 
+26/04/2024 update 2: Suppression de la carte template_card_room_power et template_card_room_systeme maintenant la carte template_card_room regroupe les 3 precedentes cartes avec passage des chips a 20 entitées (attention il faut rajouter - content: null pour eviter l'affichage ou - content: NOM de l'entitée).[terminer]<br>
+26/04/2024 update 3: template_card_room maintenant il est possible d'intégré les cameras comme la carte camera les chips s'active quand la camera en en mode enregistrement ,toujours pour un total de 20 entitées.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
