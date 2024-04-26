@@ -14,38 +14,39 @@ cards:
       - type: custom:decluttering-card
         template: template_clock_card
   - type: custom:decluttering-card
-    template: template_card_room_systeme
+    template: template_card_room
     variables:
       - primary: Systeme
       - background-image: url(https://i.ibb.co/NjM7Dd6/salon.png)
       - icon: home-assistant
-      - entity: switch.nas
-      - entity_1: update.let_s_encrypt_update
-      - content_1: Let's encrypt
-      - entity_2: update.home_assistant_operating_system_update
-      - content_2: Ha os
-      - entity_3: update.home_assistant_core_update
-      - content_3: Ha core
-      - entity_4: update.home_assistant_supervisor_update
-      - content_4: Ha supervisor
-      - entity_5: update.duck_dns_update
-      - content_5: Duck dns
-      - entity_6: update.file_editor_update
-      - content_6: File editor
-      - entity_7: update.mariadb_update
-      - content_7: Maria db
-      - entity_8: update.mosquitto_broker_update
-      - content_8: Mosquito broker
-      - entity_9: update.phpmyadmin_update
-      - content_9: Php myadmin
-      - entity_10: update.terminal_ssh_update
-      - content_10: Terminal ssh
-      - entity_11: update.zigbee2mqtt_update
-      - content_11: Zigbee2mqtt
-      - entity_12: update.zigstar_ti_cc2652p_p7_fw_flasher_update
-      - content_12: Zigstar
-      - entity_13: update.samba_share_update
-      - content_13: Samba share
+      - entity_1: switch.nas
+      - content: null
+      - entity_2: update.let_s_encrypt_update
+      - content_2: Let's encrypt
+      - entity_3: update.home_assistant_operating_system_update
+      - content_3: Ha os
+      - entity_4: update.home_assistant_core_update
+      - content_4: Ha core
+      - entity_5: update.home_assistant_supervisor_update
+      - content_5: Ha supervisor
+      - entity_6: update.duck_dns_update
+      - content_6: Duck dns
+      - entity_7: update.file_editor_update
+      - content_7: File editor
+      - entity_8: update.mariadb_update
+      - content_8: Maria db
+      - entity_9: update.mosquitto_broker_update
+      - content_9: Mosquito broker
+      - entity_10: update.phpmyadmin_update
+      - content_10: Php myadmin
+      - entity_11: update.terminal_ssh_update
+      - content_11: Terminal ssh
+      - entity_12: update.zigbee2mqtt_update
+      - content_12: Zigbee2mqtt
+      - entity_13: update.zigstar_ti_cc2652p_p7_fw_flasher_update
+      - content_13: Zigstar
+      - entity_14: update.samba_share_update
+      - content_14: Samba share
       - sensor_temp: sensor.nas_temperature
       - sensor_power: sensor.nas_power
       - navigation: '#systeme'
@@ -71,14 +72,16 @@ cards:
   - type: horizontal-stack
     cards:
       - type: custom:decluttering-card
-        template: template_card_room_power
+        template: template_card_room
         variables:
           - primary: Salon
           - background-image: url(https://i.ibb.co/NjM7Dd6/salon.png)
           - icon: sofa
           - binary_sensor: binary_sensor.porte_d_entree_contact
           - entity_1: light.le_salon
+          - content: null
           - entity_2: media_player.samsung_7_series_65
+          - content: null
           - entity_alarme: alarm_control_panel.alarmo
           - sensor_power: sensor.salon_1_power
           - navigation: '#salon'
@@ -91,16 +94,20 @@ cards:
           - background-image: url(https://i.ibb.co/19NXD2Z/cuisine.png)
           - icon: pot-steam
           - entity_1: switch.cuisine
+          - content_1: null
           - entity_2: light.plan_de_travail
+          - content_2: null
           - navigation: '#cuisine'
       - type: custom:decluttering-card
-        template: template_card_room_power
+        template: template_card_room
         variables:
           - primary: S.a.m
           - background-image: url(https://i.ibb.co/rmk15p2/salle-a-manger.png)
           - icon: silverware-variant
           - entity_1: light.la_salle_a_manger
+          - content_2: null
           - entity_2: switch.salle_a_manger
+          - content_2: null
           - sensor_power: sensor.salle_a_manger_power
           - navigation: '#salle_a_manger'
   - type: horizontal-stack
@@ -112,6 +119,7 @@ cards:
           - background-image: url(https://i.ibb.co/df4LfL3/couloir.png)
           - icon: globe-light
           - entity_1: light.le_couloir
+          - content_1: null
           - navigation: '#couloir'
       - type: custom:decluttering-card
         template: template_card_room
@@ -123,13 +131,15 @@ cards:
           - sensor_humidity: sensor.salle_de_bain_bas_humidity
           - navigation: '#sdb_rdc'
       - type: custom:decluttering-card
-        template: template_card_room_power
+        template: template_card_room
         variables:
           - primary: Chambre parentale
           - background-image: url(https://i.ibb.co/1JSvK9C/chambre-parentale.png)
           - icon: bed
           - entity_1: switch.chambre_romain
+          - content_1: null
           - entity_2: switch.chambre_parentale
+          - content_2: null
           - sensor_temp: sensor.chambre_parentale_temperature
           - sensor_humidity: sensor.chambre_parentale_humidity
           - sensor_power: sensor.chambre_romain_power
@@ -152,6 +162,7 @@ cards:
           - background-image: url(https://i.ibb.co/K6SCvHg/chambre-ethan.png)
           - icon: bed
           - entity_1: switch.chambre_ethan
+          - content_1: null
           - navigation: '#chambre_ethan'
           - sensor_temp: sensor.chambre_ethan_temperature
           - sensor_humidity: sensor.chambre_ethan_humidity
@@ -162,7 +173,9 @@ cards:
           - background-image: url(https://i.ibb.co/0KVhWgm/chambre-nathan.png)
           - icon: bed
           - entity_1: switch.chambre_nathan
+          - content_1: null
           - entity_2: media_player.continental_2k_android_tv
+          - content_2: null
           - navigation: '#chambre_nathan'
           - sensor_temp: sensor.chambre_nathan_temperature
           - sensor_humidity: sensor.chambre_nathan_humidity
@@ -174,6 +187,7 @@ cards:
           - primary: Chambre d'amis
           - background-image: url(https://i.ibb.co/PTCWJ0d/chambredamis.png)
           - entity_1: light.la_chambre_d_amis
+          - content_1: null
           - icon: bed
           - navigation: '#chambre_d_amis'
           - sensor_temp: sensor.chambre_damis_temperature
@@ -184,6 +198,7 @@ cards:
           - primary: Chambre rox
           - background-image: url(https://i.ibb.co/xSGC5pv/chambre-rox.png)
           - entity_1: switch.chambre_rox
+          - content_1: null
           - icon: bed
           - navigation: '#chambre_rox'
           - sensor_temp: sensor.chambre_rox_temperature
@@ -195,6 +210,7 @@ cards:
           - background-image: url(https://i.ibb.co/v3qM0Zb/palier.jpg)
           - icon: stairs
           - entity_1: light.palier
+          - content_1: null
           - navigation: '#palier'
           - sensor_temp: sensor.palier_temperature
           - sensor_humidity: sensor.palier_humidity
