@@ -11,13 +11,13 @@ update:<br>
 26/04/2024: update 1: Toutes les modifications ont été apporté sur la carte systeme augmentation du nombres de chip passe de 13 a 15, resolution de probleme d'affichage des icones, suppression de la ligne de capteur de temperature.[terminer]<br>
 26/04/2024 update 2: Suppression de la carte template_card_room_power et template_card_room_systeme maintenant la carte template_card_room regroupe les 3 precedentes cartes avec passage des chips a 20 entitées (attention il faut rajouter - content: null pour eviter l'affichage ou - content: NOM de l'entitée).[terminer]<br>
 26/04/2024 update 3: template_card_room maintenant il est possible d'intégré les cameras comme la carte camera les chips s'active quand la camera en en mode enregistrement ,toujours pour un total de 20 entitées.[terminer]<br>
+26/04/2024 update 4: la template_card_room inclus la template_card_room_terra il y a donc 1 room_card , 1 room_card_camera , 1 room_card_meteo et 1 digital clock. [terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
 Le code des cartes est dans le fichier carte dashboard<br>
 Pour mettre vos entitées il suffit de les mettre dans les cartes du dashboard elles sont sur les lignes entity_1 à 5:<br>
-cartes template_card_room: (possibilté de mettre 20 entitées différentes)<br>
-carte template_card_room_terra: (possibilité de mettre 6 entitées diférentes)<br>
+cartes template_card_room: (possibilté de mettre 20 entitées différentes, possibilité de mettre 2 sensor_temp , 2 sensor_humidity ainsi que 2 sensor_power)<br>
 carte template_card_meteo: (adaptation automatique en changeant les entitées et sensor avec ceux de votre ville)<br>
 carte template_card_camera: (possibillité de mettre jusqu'a 12 cameras differente , les chips ne s'affiche qu'en mode recording)<br>
 Les backgrounds des cartes peuvent etre changer directement dans les cartes<br>
