@@ -46,6 +46,7 @@ Integrations:
   - pronote (si utiliser sinon peut etre supprimer)( https://github.com/delphiki/hass-pronote )
   - ainsi que les intégrations pour les periférique bien entendue et ceux que vous voulez mettre dans les cartes<br><br>
 Installation:<br>
+(vous avez la possibilité d'ajouter le fichier dashboard-2024-2.0.yaml dans un dossier dashboard2024 et ce dossier est a placer dans le dossier themes il apportera quelques modification graphique a HA)<br>
 Ajouter le code dans lovelace.ui au debut de votre code<br>
 ![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/lovelace_1.png)<br>
 ![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/lovelace_2.png)<br>
