@@ -1,0 +1,50 @@
+dashboard2024:
+  modes:
+    dark:
+       #taille bordure cartes    
+      ha-card-border-width: 0px
+       #couleur base carte
+      ha-card-background-color: "#00000000"
+       #taille text nom
+      mush-card-primary-font-size: 12px 
+       #couleur texte info primaire carte
+      mush-card-primary-color: " #f0f0f0 "
+       #couleur texte info secondaire carte
+      mush-card-secondary-color: " #f0f0f0 " 
+       #taille texte info secondaire
+      mush-card-secondary-font-size: 9px
+       #police caractere
+      primary-font-family: 'Roboto'
+      paper-font-common-base_-_font-family: "var(--primary-font-family)"
+      paper-font-common-code_-_font-family: "var(--primary-font-family)"
+      paper-font-body1_-_font-family: "var(--primary-font-family)"
+      paper-font-subhead_-_font-family: "var(--primary-font-family)"
+      paper-font-headline_-_font-family: "var(--primary-font-family)"
+      paper-font-caption_-_font-family: "var(--primary-font-family)"
+      paper-font-title_-_font-family: "var(--primary-font-family)"
+      ha-card-header-font-family: "var(--primary-font-family)"
+      
+    light:
+       #taille bordure cartes    
+      ha-card-border-width: 0px
+       #couleur base carte
+      ha-card-background-color: "#00000000"
+       #taille text nom
+      mush-card-primary-font-size: 12px 
+       #couleur texte info primaire carte
+      mush-card-primary-color: " #f0f0f0 "
+       #couleur texte info secondaire carte
+      mush-card-secondary-color: " #f0f0f0 " 
+       #taille texte info secondaire
+      mush-card-secondary-font-size: 9px
+       #police caractere
+      primary-font-family: 'Roboto'
+      paper-font-common-base_-_font-family: "var(--primary-font-family)"
+      paper-font-common-code_-_font-family: "var(--primary-font-family)"
+      paper-font-body1_-_font-family: "var(--primary-font-family)"
+      paper-font-subhead_-_font-family: "var(--primary-font-family)"
+      paper-font-headline_-_font-family: "var(--primary-font-family)"
+      paper-font-caption_-_font-family: "var(--primary-font-family)"
+      paper-font-title_-_font-family: "var(--primary-font-family)"
+      ha-card-header-font-family: "var(--primary-font-family)"
+      
