@@ -45,14 +45,14 @@ decluttering_templates:
                   left: -155px;
                   overflow: visible !important;
                   white-space: normal !important;
-                  text-shadow: 1px 1px 0px  #000000 ;
+                  text-shadow: 1px 1px 2px #000000, 1px 1px 3px #000000, 1px 1px 2px #000000, 1px 1px 2px;;
                 }
                 .secondary {
                   position: relative;
                   overflow: visible !important;
                   top: -49px;
                   left: -155px;
-                  text-shadow: 1px 1px 0px  #000000 ;
+                  text-shadow: 1px 1px 2px #000000, 1px 1px 3px #000000, 1px 1px 2px #000000, 1px 1px 2px;
                 }
               mushroom-shape-icon$: |
                 .shape {
@@ -104,7 +104,7 @@ decluttering_templates:
               conditions:
                 - condition: state
                   entity: '[[entity_1]]'
-                  state: 'on'
+                  state: recording
               chip:
                 type: template
                 entity: '[[entity_1]]'
@@ -452,7 +452,7 @@ decluttering_templates:
       card_mod:
         style: |
           ha-card {
-            height: 178px ;
+            height: 178px;
             margin: auto;
             background-image: url(https://img.freepik.com/vecteurs-libre/camera-surveillance-illustration-futuriste_1284-62476.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1713139200&semt=ais);
             background-size: cover;
@@ -519,7 +519,7 @@ decluttering_templates:
             states('[[sensor_humidity_1]]') != 'unknown'
             %}{{states('[[sensor_humidity_1]]') }}%{% endif %}{% if
             states('[[sensor_humidity_2]]') != 'unknown'
-            %}/{{states('[[sensor_humidity_2]]') }}%{% endif %}
+            %}/{{states('[[sensor_humidity_2]]') }}%{% endif %} 
 
             {% if states('[[sensor_power_1]]') != 'unknown' %}{{
             states('[[sensor_power_1]]') | round(0) }}W{% endif %} {% if
@@ -541,24 +541,24 @@ decluttering_templates:
               mushroom-state-info$: |
                 .primary {
                   position: relative;
-                  top: -50px;
+                  top: -42px;
                   left: -155px;
                   overflow: visible !important;
-                  white-space: normal !important;
-                  text-shadow: 1px 1px 0px  #000000 ;
+                  white-space: normal !important;                 
+                  text-shadow: 1px 1px 3px #000000, 1px 1px 2px #000000, 1px 1px 2px #000000, 1px 1px 2px;                 
                 }
                 .secondary {
                   position: relative;
                   overflow: visible !important;
-                  top: -49px;
+                  top: -41px;
                   left: -155px;
-                  text-shadow: 1px 1px 0px  #000000 ;
+                  text-shadow: 1px 1px 2px #000000, 1px 1px 3px #000000, 1px 1px 2px #000000, 1px 1px 2px;
                 }
               mushroom-shape-icon$: |
                 .shape {
                   position: relative;
                   left: -43px;
-                  top: 55px;
+                  top: 50px;
                 }
               .: |
                 :host {
@@ -578,7 +578,9 @@ decluttering_templates:
               conditions:
                 - condition: state
                   entity: '[[entity_1]]'
-                  state: 'on'
+                  state:
+                    - recording
+                    - 'on'
               chip:
                 type: template
                 tap_action:
@@ -1205,7 +1207,7 @@ decluttering_templates:
       card_mod:
         style: |
           ha-card {
-            height: 178px ;
+            height: 178px;
             margin: auto;
             background-image: [[background-image]];
             background-size: cover;
@@ -1262,13 +1264,13 @@ decluttering_templates:
               primary: '[[primary]]'
               secondary: >-
                 {{ states('[[sensor_temp]]') }}°C/{{
-                states('sensor.average_temperature') | round(1) }}°C
+                states('sensor.average_temperature') | round(0) }}°C
 
                 {{ states('[[sensor_humidity]]') }}%/{{
-                states('sensor.average_humidity') | round(1) }}%
+                states('sensor.average_humidity') | round(0) }}%
 
-                Puissance totale maison {{ states('sensor.total_power_maison') |
-                round(1) }}W
+                Totale maison {{ states('sensor.total_power_maison') | round(1)
+                }}W
               layout: horizontal
               tap_action:
                 action: navigate
@@ -1287,7 +1289,7 @@ decluttering_templates:
                       left: -155px;
                       overflow: visible !important;
                       white-space: normal !important;
-                      text-shadow: 1px 1px 0px  #000000 ;
+                      text-shadow: 1px 1px 2px #000000, 1px 1px 3px #000000, 1px 1px 2px #000000, 1px 1px 2px;
                       z-index: 1;
                     }
                     .secondary {
@@ -1295,7 +1297,7 @@ decluttering_templates:
                       overflow: visible !important;
                       top: -49px;
                       left: -155px;
-                      text-shadow: 1px 1px 0px  #000000 ;
+                      text-shadow: 1px 1px 2px #000000, 1px 1px 3px #000000, 1px 1px 2px #000000, 1px 1px 2px;
                       z-index: 1;
                     }
                   mushroom-shape-icon$: |
