@@ -1172,26 +1172,13 @@ decluttering_templates:
               conditions:
                 - condition: state
                   entity: '[[entity_alarme]]'
-                  state: armed_away
+                  state: 
+                    - armed_away
+                    - armed_night
               chip:
                 type: alarm-control-panel
                 entity: '[[entity_alarme]]'
                 tap_action:
-                  action: none
-                content_info: none
-            - type: conditional
-              conditions:
-                - condition: state
-                  entity: '[[entity_alarme]]'
-                  state: armed_night
-              chip:
-                type: alarm-control-panel
-                entity: '[[entity_alarme]]'
-                tap_action:
-                  action: none
-                hold_action:
-                  action: none
-                double_tap_action:
                   action: none
                 content_info: none
           card_mod:
@@ -1222,39 +1209,27 @@ decluttering_templates:
             - type: custom:mushroom-template-card
               entity: '[[entity_1]]'
               icon: |-
-                {% if is_state("[[entity_1]]", "sunny") %}
-                  mdi:weather-sunny
-                {% elif is_state("[[entity_1]]", "partlycloudy") %}
-                  mdi:weather-partly-cloudy
-                {% elif is_state("[[entity_1]]", "cloudy") %}
-                  mdi:weather-cloudy
-                {% elif is_state("[[entity_1]]", "mostlycloudy") %}
-                  mdi:weather-cloudy
-                {% elif is_state("[[entity_1]]", "clear-night") %}
-                  mdi:weather-night
-                {% elif is_state("[[entity_1]]", "fog") %}
-                  mdi:weather-fog
-                {% elif is_state("[[entity_1]]", "rainy") %}
-                  mdi:weather-rainy
-                {% elif is_state("[[entity_1]]", "lightning-rainy") %}
-                  mdi:weather-lightning-rainy
-                {% elif is_state("[[entity_1]]", "night-partly-cloudy") %}
-                  mdi:weather-night-partly-cloudy
-                {% elif is_state("[[entity_1]]", "hail") %}
-                  mdi:weather-hail
-                {% elif is_state("[[entity_1]]", "lightning") %}
-                  mdi:weather-lightning
-                {% elif is_state("[[entity_1]]", "pouring") %}
-                  mdi:weather-pouring
-                {% elif is_state("[[entity_1]]", "snowy") %}
-                  mdi:weather-snowy
-                {% elif is_state("[[entity_1]]", "snowy-rainy") %}
-                  mdi:weather-snowy-rainy 
-                {% elif is_state("[[entity_1]]", "windy") %}
-                  mdi:weather-windy 
-                {% elif is_state("[[entity_1]]", "windy-variant") %}
-                  mdi:weather-windy-variant 
-                {% endif %}
+                {% set weather_states = {
+                    "sunny": "mdi:weather-sunny",
+                    "partlycloudy": "mdi:weather-partly-cloudy",
+                    "cloudy": "mdi:weather-cloudy",
+                    "mostlycloudy": "mdi:weather-cloudy",
+                    "clear-night": "mdi:weather-night",
+                    "fog": "mdi:weather-fog",
+                    "rainy": "mdi:weather-rainy",
+                    "lightning-rainy": "mdi:weather-lightning-rainy",
+                    "night-partly-cloudy": "mdi:weather-night-partly-cloudy",
+                    "hail": "mdi:weather-hail",
+                    "lightning": "mdi:weather-lightning",
+                    "pouring": "mdi:weather-pouring",
+                    "snowy": "mdi:weather-snowy",
+                    "snowy-rainy": "mdi:weather-snowy-rainy",
+                    "windy": "mdi:weather-windy",
+                    "windy-variant": "mdi:weather-windy-variant"
+                } %}
+                {% set weather_icon = weather_states.get(states("[[entity_1]]")) %}
+                {{ weather_icon if weather_icon is defined else 'mdi:weather-sunny' }}
+
               icon_color: |
                 {% if is_state('[[sensor]]', 'off') %}
                   #00000099
@@ -1318,8 +1293,7 @@ decluttering_templates:
                     ha-card {
                       height: 153px;
                       margin: auto;
-                      background-image: url('{% if is_state("[[entity_1]]", "sunny") %}https://i.pinimg.com/originals/d8/a2/ee/d8a2eee27b91f50078645085e4057f3c.gif{% elif is_state("[[entity_1]]", "hail") %}https://i.gifer.com/DJxO.gif{% elif is_state("[[entity_1]]", "partlycloudy") %}https://i.gifer.com/g1vA.gif{% elif is_state("[[entity_1]]", "cloudy") %}https://i.gifer.com/g1vA.gif{% elif is_state("[[entity_1]]", "mostlycloudy") %}https://i.gifer.com/Lx0q.gif{% elif is_state("[[entity_1]]", "clear-night") %}https://i.gifer.com/IrS.gif{% elif is_state("[[entity_1]]", "fog") %}https://i.gifer.com/8AC8.gif{% elif is_state("[[entity_1]]", "rainy") %}https://i.gifer.com/FEuz.gif{% endif %}');
-                      background-size: cover;
+                      background-image: url('{% if is_state("[[entity_1]]", "sunny") %}https://i.pinimg.com/originals/d8/a2/ee/d8a2eee27b91f50078645085e4057f3c.gif{% elif is_state("[[entity_1]]", "hail") %}https://i.gifer.com/DJxO.gif{% elif is_state("[[entity_1]]", "partlycloudy") %}https://i.gifer.com/g1vA.gif{% elif is_state("[[entity_1]]", "cloudy") %}https://i.gifer.com/g1vA.gif{% elif is_state("[[entity_1]]", "mostlycloudy") %}https://i.gifer.com/Lx0q.gif{% elif is_state("[[entity_1]]", "clear-night") %}https://i.gifer.com/IrS.gif{% elif is_state("[[entity_1]]", "fog") %}https://i.gifer.com/8AC8.gif{% elif is_state("[[entity_1]]", "rainy") %}https://i.gifer.com/FEuz.gif{% endif %}');                      background-size: cover;
                       background-position: center;
                       display: flex;
                     }
@@ -1348,4 +1322,7 @@ decluttering_templates:
                     font-size: 35px;
                     border: none;
                     height: 170px;
+                    -webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: #000000;
+                    -webkit-text-fill-color: #03a9f4;
                     }
