@@ -13,6 +13,7 @@ update:<br>
 26/04/2024 update 3: template_card_room maintenant il est possible d'intégré les cameras comme la carte camera les chips s'active quand la camera en en mode enregistrement ,toujours pour un total de 20 entitées.[terminer]<br>
 26/04/2024 update 4: la template_card_room inclus la template_card_room_terra il y a donc 1 room_card , 1 room_card_camera , 1 room_card_meteo et 1 digital clock. [terminer]<br>
 28/04/2024: la carte template_card_room peut inclure le cameras , quelques modification graphique , correction de bugs divers.[terminer]<br>
+29/04/2024: nettoyage et optimisation du code lovelace.ui (surtout carte meteo) , modification graphique de l'horloge.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
