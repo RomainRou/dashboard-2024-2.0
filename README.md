@@ -15,6 +15,7 @@ update:<br>
 28/04/2024: la carte template_card_room peut inclure le cameras , quelques modification graphique , correction de bugs divers.[terminer]<br>
 29/04/2024: nettoyage et optimisation du code lovelace.ui (surtout carte meteo) , modification graphique de l'horloge.[terminer]<br>
 08/05/2024: ajout d'un dashboard en section utilisable sur smartphone (il faut prendre le code dans lovelace.ui 2.1 et le coller dans le lovelace.ui).[terminer]<br>
+15/05/2024: ajout de la condition alarme déclencher pour l'affichage du chip.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
