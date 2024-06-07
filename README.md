@@ -12,11 +12,11 @@ update:<br>
 26/04/2024 update 2: Suppression de la carte template_card_room_power et template_card_room_systeme maintenant la carte template_card_room regroupe les 3 precedentes cartes avec passage des chips a 20 entitées (attention il faut rajouter - content: null pour eviter l'affichage ou - content: NOM de l'entitée).[terminer]<br>
 26/04/2024 update 3: template_card_room maintenant il est possible d'intégré les cameras comme la carte camera les chips s'active quand la camera en en mode enregistrement ,toujours pour un total de 20 entitées.[terminer]<br>
 26/04/2024 update 4: la template_card_room inclus la template_card_room_terra il y a donc 1 room_card , 1 room_card_camera , 1 room_card_meteo et 1 digital clock. [terminer]<br>
-28/04/2024: la carte template_card_room peut inclure le cameras , quelques modification graphique , correction de bugs divers.[terminer]<br>
+28/04/2024: la carte template_card_room peut inclure les cameras , quelques modification graphique , correction de bugs divers.[terminer]<br>
 29/04/2024: nettoyage et optimisation du code lovelace.ui (surtout carte meteo) , modification graphique de l'horloge.[terminer]<br>
 08/05/2024: ajout d'un dashboard en section utilisable sur smartphone (il faut prendre le code dans lovelace.ui 2.1 et le coller dans le lovelace.ui).[terminer]<br>
 15/05/2024: ajout de la condition alarme déclencher pour l'affichage du chip.[terminer]<br>
-08/06/2024: suppression du sensor il fait nuit remplacer par le sensor sun.sun .[terminer]<br>
+08/06/2024: suppression du sensor il fait nuit il fait le remplacer par le sensor sun.sun dans la carte.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
@@ -27,7 +27,6 @@ carte template_card_meteo: (adaptation automatique en changeant les entitées et
 carte template_card_camera: (possibillité de mettre jusqu'a 12 cameras differente , les chips ne s'affiche qu'en mode recording)<br>
 Les backgrounds des cartes peuvent etre changer directement dans les cartes<br>
 Ne pas oublier de changer les entités dans les popups <br>
-pour le sensor "il fait nuit" le lien pour la création https://www.sigalou-domotique.fr/je-voudrais-savoir-si-nous-sommes-le-jour-ou-la-nuit<br>
 Addons et intégrations nécessaire.<br>
 Addon: 
   - lovelace-meteofrance-weather-card ( https://github.com/hacf-fr/lovelace-meteofrance-weather-card )
