@@ -776,7 +776,7 @@ decluttering_templates:
                 {{ weather_icon if weather_icon is defined else
                 'mdi:weather-sunny' }}
               icon_color: |
-                {% if is_state('[[sensor]]', 'off') %}
+                {% if is_state('[[sensor]]', 'below_horizon') %}
                   #00000099
                 {% else %}  
                   #03a9f499
