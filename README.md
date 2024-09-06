@@ -17,7 +17,7 @@ update:<br>
 08/05/2024: ajout d'un dashboard en section utilisable sur smartphone (il faut prendre le code dans lovelace.ui 2.1 et le coller dans le lovelace.ui).[terminer]<br>
 15/05/2024: ajout de la condition alarme déclencher pour l'affichage du chip.[terminer]<br>
 08/06/2024: suppression du sensor il fait nuit il faut le remplacer par le sensor sun.sun dans la carte.[terminer]<br>
-06/09/2024: grosse modification de certain parametres/mise en page/graphique, augmentation du nombre d'entitées a 20 et d'autres modification au fur et mesure du temps et de mes envie, prendre le code du fichier lovelace.ui 2.2 , ajout d'une automatisatuion por la notification telegram des devoirs a faire.[terminer]<br>
+06/09/2024: grosse modification de certain parametres/mise en page/graphique (screen plus d'actualité sur certain points), augmentation du nombre d'entitées a 20 et d'autres modification au fur et mesure du temps et de mes envie, prendre le code du fichier lovelace.ui 2.2 , ajout d'une automatisatuion pour la notification telegram des devoirs a faire.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
@@ -25,7 +25,6 @@ Le code des cartes est dans le fichier carte dashboard<br>
 Pour mettre vos entitées il suffit de les mettre dans les cartes du dashboard elles sont sur les lignes entity_1 à 5:<br>
 cartes template_card_room: (possibilté de mettre 20 entitées différentes, possibilité de mettre 2 sensor_temp , 2 sensor_humidity ainsi que 2 sensor_power)<br>
 carte template_card_meteo: (adaptation automatique en changeant les entitées et sensor avec ceux de votre ville)<br>
-carte template_card_camera: (possibillité de mettre jusqu'a 12 cameras differente , les chips ne s'affiche qu'en mode recording)<br>
 Les backgrounds des cartes peuvent etre changer directement dans les cartes<br>
 Ne pas oublier de changer les entités dans les popups <br>
 Addons et intégrations nécessaire.<br>
@@ -43,13 +42,14 @@ Addon:
   - stack-in-card ( https://github.com/custom-cards/stack-in-card )
   - decluttering card ( https://github.com/custom-cards/decluttering-card )
   - fold-entity-row ( https://github.com/thomasloven/lovelace-fold-entity-row )
+  - button-card ( https://github.com/custom-cards/button-card )
 
 
 Integrations:
   - meteo france (pour afficher la meteo)
   - alarmo (si utiliser sinon peut etre supprimer)( https://github.com/nielsfaber/alarmo )
   - pronote (si utiliser sinon peut etre supprimer)( https://github.com/delphiki/hass-pronote )
-  - ainsi que les intégrations pour les periférique bien entendue et ceux que vous voulez mettre dans les cartes<br><br>
+  - ainsi que les intégrations pour les perifériques bien entendue et ceux que vous voulez mettre dans les cartes<br><br>
 Installation:<br>
 (vous avez la possibilité d'ajouter le fichier dashboard-2024-2.0.yaml dans un dossier dashboard2024 et ce dossier est a placer dans le dossier themes il apportera quelques modification graphique a HA)<br>
 Ajouter le code dans lovelace.ui au debut de votre code<br>
