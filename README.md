@@ -17,7 +17,7 @@ update:<br>
 08/05/2024: ajout d'un dashboard en section utilisable sur smartphone (il faut prendre le code dans lovelace.ui 2.1 et le coller dans le lovelace.ui).[terminer]<br>
 15/05/2024: ajout de la condition alarme déclencher pour l'affichage du chip.[terminer]<br>
 08/06/2024: suppression du sensor il fait nuit il faut le remplacer par le sensor sun.sun dans la carte.[terminer]<br>
-06/09/2024: grosse modification de certain parametres/mise en page/graphique, augmentation du nombre d'entitées a 20 et d'autres modification au fur et mesure du temps et de mes envie.[terminer]<br>
+06/09/2024: grosse modification de certain parametres/mise en page/graphique, augmentation du nombre d'entitées a 20 et d'autres modification au fur et mesure du temps et de mes envie, prendre le code du fichier dashboard.2.1 , ajout d'une automatisatuion por la notification telegram des devoirs a faire.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
