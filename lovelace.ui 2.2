@@ -784,14 +784,14 @@ decluttering_templates:
                 {% endif %}
               primary: '[[primary]]'
               secondary: >-
-            {% if states('[[sensor_temp_1]]') != 'unknown'
-            %}{{states('[[sensor_temp_1]]') }}°C{% endif %}{% if
+                {% if states('[[sensor_temp_1]]') != 'unknown'
+                %}{{states('[[sensor_temp_1]]') }}°C{% endif %}{% if
                 states('[[sensor_temp_2]]') != 'unknown'
-            %}/{{states('[[sensor_temp_2]]') }}°C{% endif %} {% if
+                %}/{{states('[[sensor_temp_2]]') }}°C{% endif %} {% if
                 states('[[sensor_humidity_1]]') != 'unknown'
-            %}{{states('[[sensor_humidity_1]]') }}%{% endif %}{% if
+                %}{{states('[[sensor_humidity_1]]') }}%{% endif %}{% if
                 states('[[sensor_humidity_2]]') != 'unknown'
-            %}/{{states('[[sensor_humidity_2]]') }}%{% endif %} 
+                %}/{{states('[[sensor_humidity_2]]') }}%{% endif %} 
               layout: horizontal
               tap_action:
                 action: navigate
