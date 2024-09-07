@@ -783,9 +783,15 @@ decluttering_templates:
                   #03a9f499
                 {% endif %}
               primary: '[[primary]]'
-              secondary: |-
-                {{ states('[[sensor_temp]]') }}°C 
-                {{ states('[[sensor_humidity]]') }}% 
+              secondary: >-
+            {% if states('[[sensor_temp_1]]') != 'unknown'
+            %}{{states('[[sensor_temp_1]]') }}°C{% endif %}{% if
+                states('[[sensor_temp_2]]') != 'unknown'
+            %}/{{states('[[sensor_temp_2]]') }}°C{% endif %} {% if
+                states('[[sensor_humidity_1]]') != 'unknown'
+            %}{{states('[[sensor_humidity_1]]') }}%{% endif %}{% if
+                states('[[sensor_humidity_2]]') != 'unknown'
+            %}/{{states('[[sensor_humidity_2]]') }}%{% endif %} 
               layout: horizontal
               tap_action:
                 action: navigate
