@@ -18,6 +18,7 @@ update:<br>
 15/05/2024: ajout de la condition alarme déclencher pour l'affichage du chip.[terminer]<br>
 08/06/2024: suppression du sensor il fait nuit il faut le remplacer par le sensor sun.sun dans la carte.[terminer]<br>
 06/09/2024: grosse modification de certain parametres/mise en page/graphique (screen plus d'actualité sur certain points), augmentation du nombre d'entitées a 20 et d'autres modification au fur et mesure du temps et de mes envie, prendre le code du fichier lovelace.ui 2.2 , ajout d'une automatisatuion pour la notification telegram des devoirs a faire.[terminer]<br>
+07/09/2024: modification du code de la carte meteo , rien n'est affiché si aucun sensor n'est renseigner.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
