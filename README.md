@@ -19,13 +19,12 @@ update:<br>
 08/06/2024 update 11: suppression du sensor il fait nuit il faut le remplacer par le sensor sun.sun dans la carte.[terminer]<br>
 06/09/2024 update 12: grosse modification de certain parametres/mise en page/graphique (screen plus d'actualité sur certain points), augmentation du nombre d'entitées a 20 et d'autres modification au fur et mesure du temps et de mes envie, prendre le code du fichier lovelace.ui 2.2 , ajout d'une automatisatuion pour la notification telegram des devoirs a faire.[terminer]<br>
 07/09/2024 update 13: modification du code de la carte meteo , rien n'est affiché si aucun sensor n'est renseigner.[terminer]<br>
-26/11/2024 update 14: optimisation et refonte du code du dashboard (fichier lovelace.ui 3.0) en gardant le visuel mais en essayant de faire en sorte qu'il sois adaptatif le plus possible , passage en declutering-card , des cartes principales(room card avec passage de 20 entitées a 10 se qui est amplement suffisant), de la carte pronote , confection d'une carte cover a base de mushroom chip card ( possibilité d'afficher en infos secondaire sois le pourentage du volet sois le nombre de volets ouvert/partiel/fermé si c'est un groupe de volets) la couleur des icones reprend la couleur de base de home assistant (si volet ouvert a 100% le bouton monter et pause est gris au lieu du bleu et si le volet est fermé c'est le monton descente et pause qui sont gris) les icones sur la carte principale et la carte de controle son adaptive suivant le pourcentage d'ouverture grace a l'extension custom-icon , la carte minigraph reçois un degrader de couleur (en bleu trop froid/pas assez humide , vert temperature de confort/bonne humidité , rouge trop chaud/trop humide) pour les valeurs je me suis basé apres recherche sur une temperature moyenne et sur le taux d'humidité recomandé avec la possibilité de mettre 3 sensors en plus , la carte pronote est en cours (certaines cartes ne sont pas encore disponible auprès du dev de l'integartion).
+26/11/2024 update 14: optimisation et refonte du code du dashboard (fichier lovelace.ui 3.0) en gardant le visuel mais en essayant de faire en sorte qu'il sois adaptatif le plus possible , passage en declutering-card , des cartes principales(room card avec passage de 20 entitées a 10 se qui est amplement suffisant), de la carte pronote , confection d'une carte cover a base de mushroom chip card ( possibilité d'afficher en infos secondaire sois le pourentage du volet sois le nombre de volets ouvert/partiel/fermé si c'est un groupe de volets) la couleur des icones reprend la couleur de base de home assistant (si volet ouvert a 100% le bouton monter et pause est gris au lieu du bleu et si le volet est fermé c'est le monton descente et pause qui sont gris) les icones sur la carte principale et la carte de controle son adaptive suivant le pourcentage d'ouverture grace a l'extension custom-icon , la carte minigraph reçois un degrader de couleur (en bleu trop froid/pas assez humide , vert temperature de confort/bonne humidité , rouge trop chaud/trop humide) pour les valeurs je me suis basé apres recherche sur une temperature moyenne et sur le taux d'humidité recomandé avec la possibilité de mettre 3 sensors en plus , la carte pronote est en cours (certaines cartes ne sont pas encore disponible auprès du dev de l'integartion) , ajout de badeges en haut de pages toujours avec declutering card avec le meme fonctionnement et les meme couleurs que minigraph.[terminer]<br>
 <br><br>
 update en cours:<br>
 <br>
 Le code des cartes est dans le fichier carte dashboard<br>
-Pour mettre vos entitées il suffit de les mettre dans les cartes du dashboard elles sont sur les lignes entity_1 à 5:<br>
-cartes template_card_room: (possibilté de mettre 20 entitées différentes, possibilité de mettre 2 sensor_temp , 2 sensor_humidity ainsi que 2 sensor_power)<br>
+Pour mettre vos entitées il suffit de les mettre dans les cartes du dashboard de entity_1 à 10:<br>
 carte template_card_meteo: (adaptation automatique en changeant les entitées et sensor avec ceux de votre ville)<br>
 Les backgrounds des cartes peuvent etre changer directement dans les cartes<br>
 Ne pas oublier de changer les entités dans les popups <br>
@@ -45,6 +44,8 @@ Addon:
   - decluttering card ( https://github.com/custom-cards/decluttering-card )
   - fold-entity-row ( https://github.com/thomasloven/lovelace-fold-entity-row )
   - button-card ( https://github.com/custom-cards/button-card )
+  - custom-icon (https://github.com/Mariusthvdb/custom-icons)
+  - pronote-card (https://github.com/delphiki/lovelace-pronote)
 
 
 Integrations:
