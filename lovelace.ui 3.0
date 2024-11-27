@@ -1,4 +1,108 @@
 decluttering_templates:
+  template_custom_badges: #CARTE TEMPLATE BADGES PEUT ETRE SUPPRIMER OU A ADAPTER
+    card:
+      type: custom:mushroom-template-badge
+      content: '{{ states(''[[sensor_temp]]'') | float | round(1) }}°'
+      icon: mdi:thermometer
+      color: |-
+        {% set temp = states('[[sensor_temp]]') | float %}
+        {% if temp >= 32 %}
+          rgb(199, 199, 199)
+        {% elif 31.62 <= temp < 32 %}
+          rgb(255, 69, 58)
+        {% elif 31.23 <= temp < 31.62 %}
+          rgb(247, 72, 58)
+        {% elif 30.85 <= temp < 31.23 %}
+          rgb(240, 76, 59)
+        {% elif 30.46 <= temp < 30.85 %}
+          rgb(233, 79, 59)
+        {% elif 30.08 <= temp < 30.46 %}
+          rgb(226, 83, 60)
+        {% elif 29.69 <= temp < 30.08 %}
+          rgb(219, 86, 60)
+        {% elif 29.31 <= temp < 29.69 %}
+          rgb(211, 90, 61)
+        {% elif 28.92 <= temp < 29.31 %}
+          rgb(204, 93, 61)
+        {% elif 28.54 <= temp < 28.92 %}
+          rgb(197, 97, 62)
+        {% elif 28.15 <= temp < 28.54 %}
+          rgb(190, 100, 62)
+        {% elif 27.77 <= temp < 28.15 %}
+          rgb(183, 104, 63)
+        {% elif 27.38 <= temp < 27.77 %}
+          rgb(175, 107, 63)
+        {% elif 27 <= temp < 27.38 %}
+          rgb(168, 111, 64)
+        {% elif 26.62 <= temp < 27 %}
+          rgb(161, 114, 64)
+        {% elif 26.23 <= temp < 26.62 %}
+          rgb(154, 118, 65)
+        {% elif 25.85 <= temp < 26.23 %}
+          rgb(147, 121, 65)
+        {% elif 25.46 <= temp < 25.85 %}
+          rgb(139, 125, 66)
+        {% elif 25.08 <= temp < 25.46 %}
+          rgb(132, 128, 66)
+        {% elif 24.69 <= temp < 25.08 %}
+          rgb(125, 132, 67)
+        {% elif 24.31 <= temp < 24.69 %}
+          rgb(118, 135, 67)
+        {% elif 23.92 <= temp < 24.31 %}
+          rgb(111, 139, 68)
+        {% elif 23.54 <= temp < 23.92 %}
+          rgb(103, 142, 68)
+        {% elif 23.15 <= temp < 23.54 %}
+          rgb(96, 146, 69)
+        {% elif 22.77 <= temp < 23.15 %}
+          rgb(89, 149, 69)
+        {% elif 22.38 <= temp < 22.77 %}
+          rgb(82, 153, 70)
+        {% elif 22 <= temp < 22.38 %}
+          rgb(75, 156, 70)
+        {% elif 21.38 <= temp < 22 %}
+          rgb(68, 160, 71)
+        {% elif 20.75 <= temp < 21.38 %}
+          rgb(63, 160, 81)
+        {% elif 20.13 <= temp < 20.75 %}
+          rgb(59, 161, 92)
+        {% elif 19.5 <= temp < 20.13 %}
+          rgb(55, 161, 103)
+        {% elif 18.88 <= temp < 19.5 %}
+          rgb(51, 162, 114)
+        {% elif 18.25 <= temp < 18.88 %}
+          rgb(47, 162, 125)
+        {% elif 17.63 <= temp < 18.25 %}
+          rgb(43, 163, 135)
+        {% elif 17 <= temp < 17.63 %}
+          rgb(39, 163, 146)
+        {% elif 16.38 <= temp < 17 %}
+          rgb(35, 164, 157)
+        {% elif 15.75 <= temp < 16.38 %}
+          rgb(31, 165, 168)
+        {% elif 15.13 <= temp < 15.75 %}
+          rgb(27, 165, 179)
+        {% elif 14.5 <= temp < 15.13 %}
+          rgb(23, 166, 189)
+        {% elif 13.88 <= temp < 14.5 %}
+          rgb(19, 166, 200)
+        {% elif 13.25 <= temp < 13.88 %}
+          rgb(15, 167, 211)
+        {% elif 12.63 <= temp < 13.25 %}
+          rgb(11, 167, 222)
+        {% elif 12 <= temp < 12.63 %}
+          rgb(7, 168, 233)
+        {% else %}
+          rgb(3, 169, 244)
+        {% endif %}
+      entity: '[[sensor_temp]]'
+      tap_action:
+        action: none
+      hold_action:
+        action: none
+      double_tap_action:
+        action: none
+      label: '[[label]]'
   template_pronote_card: #CARTE TEMPLATE PRONOTE POUVANT ETRE SUPPRIMER OU A ADAPTER
     card:
       type: custom:tabbed-card
@@ -4686,3 +4790,39 @@ views:
                       border: none;
                       background: none;
                       }
+    badges: #BADGE DE HAUT DE PAGE POUVANT ETRE SUPPRIMER OU A ADAPTER
+      - type: custom:decluttering-card
+        template: template_custom_badges
+        variables:
+          - label: Rox
+          - sensor_temp: sensor.chambre_rox_temperature
+      - type: custom:decluttering-card
+        template: template_custom_badges
+        variables:
+          - label: Nathan
+          - sensor_temp: sensor.chambre_nathan_temperature
+      - type: custom:decluttering-card
+        template: template_custom_badges
+        variables:
+          - label: Ethan
+          - sensor_temp: sensor.chambre_ethan_temperature
+      - type: custom:decluttering-card
+        template: template_custom_badges
+        variables:
+          - label: Parentale
+          - sensor_temp: sensor.chambre_parentale_temperature
+      - type: custom:decluttering-card
+        template: template_custom_badges
+        variables:
+          - label: Amis
+          - sensor_temp: sensor.chambre_d_amis_temperature
+      - type: custom:decluttering-card
+        template: template_custom_badges
+        variables:
+          - label: Rdc
+          - sensor_temp: sensor.average_temperature_rdc
+      - type: custom:decluttering-card
+        template: template_custom_badges
+        variables:
+          - label: Etage
+          - sensor_temp: sensor.average_temperature_etage
