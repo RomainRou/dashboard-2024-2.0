@@ -1,5 +1,5 @@
 # dashboard-2024-2.0 <br>
-![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/dashboard_1.jpg)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/dashboard_2.jpg)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_1.png)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_2.png)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_3.png)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_4.png)<br><br>
+![screenshot](https://gyazo.com/50ad52ec9d8da4e6813c7064629b6cf2)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/dashboard_2.jpg)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_1.png)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_2.png)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_3.png)![screenshot](https://github.com/RomainRou/dashboard-2024-2.0/blob/main/popup_4.png)<br><br>
 un tuto pour l'installation est dispo en bas de page<br>
 <br>
 update:<br>
