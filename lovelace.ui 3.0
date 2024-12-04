@@ -118,10 +118,9 @@ decluttering_templates:
       tabs:
         - attributes:
             isMinWidthIndicator: true
-            label: 📆 Emploi du temps du jour
+            label: 📆 Emploi du temps
           card:
             type: custom:pronote-timetable-card
-            entity: sensor.pronote_[[nom_prenom]]_timetable_today
             display_header: false
             display_lunch_break: true
             display_classroom: true
@@ -130,20 +129,9 @@ decluttering_templates:
             dim_ended_lessons: true
             max_days: null
             current_week_only: false
-        - attributes:
-            isMinWidthIndicator: true
-            label: 📆 Prochain Emploi du temps
-          card:
-            type: custom:pronote-timetable-card
-            entity: sensor.pronote_[[nom_prenom]]_timetable_next_day
-            display_header: false
-            display_lunch_break: true
-            display_classroom: true
-            display_teacher: true
-            display_day_hours: true
-            dim_ended_lessons: true
-            max_days: null
-            current_week_only: false
+            enable_slider: true
+            display_free_time_slots: true
+            entity: sensor.pronote_[[nom_prenom]]_timetable_period
         - attributes:
             isMinWidthIndicator: true
             label: 📗Devoirs
