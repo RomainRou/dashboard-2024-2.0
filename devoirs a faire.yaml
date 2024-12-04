@@ -16,7 +16,7 @@ actions:
       title: Pronote
       message: |-
         {% set items =
-         state_attr('sensor.pronote_roulet_nathan_homework','homework') %} {% for
+         state_attr('sensor.pronote_NOM PRENOM_homework','homework') %} {% for
          item in items if item.date > now().date() and item.date <= (now().date()
          + timedelta(days=4)) and item.date.weekday() not in [5, 6] %}
         {{ item.date.strftime("%d/%m") }}         
