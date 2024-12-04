@@ -1779,25 +1779,60 @@ decluttering_templates:
                 }               
         - type: custom:mushroom-chips-card
           chips:
+            - type: template
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+              icon: >-
+                {% set position =
+                states['[[cover_group]]'].attributes.current_position | int %}
+                {% if position == 100 %}
+                  cil:shutter-0
+                {% elif position >= 75 %}
+                  cil:shutter-1
+                {% elif position >= 50 %}
+                  cil:shutter-2
+                {% elif position >= 25 %}
+                  cil:shutter-3
+                {% elif position >= 0 %}
+                  cil:shutter-4
+                {% else %}
+                  mdi:window-shutter-closed
+                {% endif %}
+              icon_color: '#03a9f4'
+              content: |-
+                {% if expand("[[cover_group]]") | length > 0 %}
+                  {% set all = expand("[[cover_group]]" | lower) -%} 
+                  {% set positions = all | map(attribute='attributes.current_position') | list -%}F:{{ positions | reject("!=", 0) | list | count }} 
+                   P:{{ positions | list | count - positions | reject("!=", 100) | list | count - positions | reject("!=", 0) | list | count - all | selectattr('state', 'in', ['opening','closing']) | list | count }} 
+                 O:{{ positions | reject("!=", 100) | list | count }} 
+                  {% if all | selectattr('state', 'in', ['opening','closing']) | list | count > 0 -%} 
+                    Actifs={{ all | selectattr('state', 'in', ['opening','closing']) | list | count }}
+                  {% endif %}
+                {% else %}
+                {% endif %}
+              entity: '[[cover_group]]'
             - type: conditional
               conditions:
-                - condition: numeric_state
-                  entity: '[[entity_compteur_lumieres]]'
-                  above: 0
+                - condition: state
+                  entity: '[[group_light]]'
+                  state:
+                    - recording
+                    - 'on'
               chip:
                 type: template
-                entity: '[[entity_compteur_lumieres]]'
+                entity: '[[group_light]]'
                 icon: >
-                  {% if
-                  states['[[entity_compteur_lumieres]]'].attributes['icon'] %}
+                  {% if states['[[group_light]]'].attributes['icon'] %}
 
-                  {{ states['[[entity_compteur_lumieres]]'].attributes['icon']
-                  }}
+                  {{ states['[[group_light]]'].attributes['icon'] }}
 
-                  {% elif
-                  states['[[entity_compteur_lumieres]]'].attributes['device_class']
+                  {% elif states['[[group_light]]'].attributes['device_class']
                   %}
-                    mdi:{{ states['[[entity_compteur_lumieres]]'].attributes['device_class'] }}
+                    mdi:{{ states['[[group_light]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
                   {% endif %}
@@ -1808,26 +1843,27 @@ decluttering_templates:
                   action: none
                 tap_action:
                   action: none
-                content: |
-                  {{ states('[[entity_compteur_lumieres]]') }}
+                content: >-
+                  {{ expand('[[group_light]]') | selectattr('state', 'eq', 'on')
+                  | list | length }}
             - type: conditional
               conditions:
-                - condition: numeric_state
-                  entity: '[[entity_compteur_prises]]'
-                  above: 0
+                - condition: state
+                  entity: '[[group_prises]]'
+                  state:
+                    - recording
+                    - 'on'
               chip:
                 type: template
-                entity: '[[entity_compteur_prises]'
+                entity: '[[group_prises]]'
                 icon: >
-                  {% if states['[[entity_compteur_prises]]'].attributes['icon']
-                  %}
+                  {% if states['[[group_prises]]'].attributes['icon'] %}
 
-                  {{ states['[[entity_compteur_prises]]'].attributes['icon'] }}
+                  {{ states['[[group_prises]]'].attributes['icon'] }}
 
-                  {% elif
-                  states['[[entity_compteur_prises]]'].attributes['device_class']
+                  {% elif states['[[group_prises]]'].attributes['device_class']
                   %}
-                    mdi:{{ states['[[entity_compteur_prises]]'].attributes['device_class'] }}
+                    mdi:{{ states['[[group_prises]]'].attributes['device_class'] }}
                   {% else %}
                     mdi:device-unknown
                   {% endif %}
@@ -1838,14 +1874,15 @@ decluttering_templates:
                   action: none
                 tap_action:
                   action: none
-                content: |
-                  {{ states('[[entity_compteur_prises]]') }}                  
+                content: >-
+                  {{ expand('[[group_prises]]') | selectattr('state', 'eq',
+                  'on') | list | length }}               
           card_mod:
             style:
               .: |
                 ha-card {
                   width: 46px;
-                  margin-left: 87%;
+                  margin-left: 85%;
                   top: -160px;
                   background: none;
                   --chip-border-width: 0;
@@ -2320,8 +2357,9 @@ views:
               - primary: Meteo/Maison
               - entity_ville: weather.VOTRE VILLE #ENTITE DONNER PAR L'INTEGRATION METEO FRANCE
               - sensor: sun.sun
-              - entity_compteur_lumieres: sensor.compteur_lumieres #PEUT ETRE SUPPRIMER 
-              - entity_compteur_prises: sensor.compteur_prises #PEUT ETRE SUPPRIMER
+              - group_light: light.lumiere_maison_complete #PEUT ETRE SUPPRIMER 
+              - group_prises: switch.prise_maison #PEUT ETRE SUPPRIMER 
+              - cover_group: cover.volets_maison #PEUT ETRE SUPPRIMER 
               - navigation: '#meteo'
       - type: conditional #CARTE SYSTEME POUVANT ETRE SUPPRIMER OU A ADAPTER 
         conditions: []
