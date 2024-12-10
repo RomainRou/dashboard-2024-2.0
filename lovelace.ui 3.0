@@ -1876,7 +1876,26 @@ decluttering_templates:
                   action: none
                 content: >-
                   {{ expand('[[group_prises]]') | selectattr('state', 'eq',
-                  'on') | list | length }}               
+                  'on') | list | length }}   
+                          - type: conditional
+              conditions:
+                - condition: state
+                  entity: '[[capteur_bal]]'
+                  state_not: '0'
+              chip:
+                type: template
+                entity: '[[capteur_bal]]'
+                icon: mdi:email-outline
+                content: '{{ states(''[[capteur_bal]]'') }}'
+                icon_color: |-
+                  {% if states('[[capteur_bal]]') | int > 0 %}        
+                    red
+                  {% endif %}
+                tap_action:
+                  action: perform-action
+                  perform_action: counter.reset
+                  target:
+                    entity_id: '[[capteur_bal]]'
           card_mod:
             style:
               .: |
@@ -2348,6 +2367,7 @@ views:
               - group_light: light.lumiere_maison_complete #PEUT ETRE SUPPRIMER 
               - group_prises: switch.prise_maison #PEUT ETRE SUPPRIMER 
               - cover_group: cover.volets_maison #PEUT ETRE SUPPRIMER 
+              - capteur_bal: counter.boite_aux_lettres #PEUT ETRE SUPPRIMER
               - navigation: '#meteo'
       - type: conditional #CARTE SYSTEME POUVANT ETRE SUPPRIMER OU A ADAPTER 
         conditions: []
