@@ -1,0 +1,27 @@
+alias: "Ouverture boîte aux lettres "
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.boite_aux_lettres_occupancy
+    from: "off"
+    to: "on"
+conditions: []
+actions:
+  - action: counter.increment
+    target:
+      entity_id: counter.boite_aux_lettres
+    data: {}
+  - action: notify.telegram
+    metadata: {}
+    data:
+      message: >
+        Ouverture boite aux lettres.
+
+        {%if (states('counter.boite_aux_lettres')|int == 1)-%}Première de la
+        journée donc surement le facteur !
+
+        {% else -%} {{states('counter.boite_aux_lettres')|int}} ème de la
+        journée. {%- endif -%}
+mode: single
+max_exceeded: silent
