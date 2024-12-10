@@ -1877,7 +1877,7 @@ decluttering_templates:
                 content: >-
                   {{ expand('[[group_prises]]') | selectattr('state', 'eq',
                   'on') | list | length }}   
-                          - type: conditional
+            - type: conditional
               conditions:
                 - condition: state
                   entity: '[[capteur_bal]]'
@@ -1892,10 +1892,7 @@ decluttering_templates:
                     red
                   {% endif %}
                 tap_action:
-                  action: perform-action
-                  perform_action: counter.reset
-                  target:
-                    entity_id: '[[capteur_bal]]'
+                  action: none
           card_mod:
             style:
               .: |
