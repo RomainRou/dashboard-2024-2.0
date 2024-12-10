@@ -1,0 +1,23 @@
+alias: Boite aux lettres - RAZ
+description: ""
+triggers:
+  - at: "00:00:00"
+    trigger: time
+conditions: []
+actions:
+  - if:
+      - condition: numeric_state
+        entity_id: counter.boite_aux_lettres
+        above: 0
+    then:
+      - action: counter.set_value
+        target:
+          entity_id:
+            - counter.boite_aux_lettres
+        data:
+          value: 0
+      - action: notify.telegram
+        metadata: {}
+        data:
+          message: "Compteur boîte aux lettres réinitialiser "
+mode: single
